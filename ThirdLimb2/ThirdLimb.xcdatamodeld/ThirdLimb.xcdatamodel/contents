@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13C64" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Asana" representedClassName="Asana" syncable="YES">
+        <attribute name="document" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="image" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" minValueString="5" syncable="YES"/>
+        <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thumbnail" attributeType="String" syncable="YES"/>
+        <attribute name="translation" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="asanaTypes" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="AsanaType" inverseName="asanas" inverseEntity="AsanaType" syncable="YES"/>
+        <relationship name="favorites" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Favorite" inverseName="asanas" inverseEntity="Favorite" syncable="YES"/>
+        <relationship name="sequences" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Sequence" inverseName="asanas" inverseEntity="Sequence" syncable="YES"/>
+    </entity>
+    <entity name="AsanaType" representedClassName="AsanaType" syncable="YES">
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <relationship name="asanas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Asana" inverseName="asanaTypes" inverseEntity="Asana" syncable="YES"/>
+    </entity>
+    <entity name="Favorite" representedClassName="Favorite" syncable="YES">
+        <attribute name="definition" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" defaultValueString="Favorite Asanas" syncable="YES"/>
+        <relationship name="asanas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Asana" inverseName="favorites" inverseEntity="Asana" syncable="YES"/>
+    </entity>
+    <entity name="Sequence" representedClassName="Sequence" syncable="YES">
+        <attribute name="definition" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" attributeType="String" syncable="YES"/>
+        <attribute name="notes" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="asanas" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Asana" inverseName="sequences" inverseEntity="Asana" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Asana" positionX="0" positionY="0" width="128" height="178"/>
+        <element name="AsanaType" positionX="243" positionY="135" width="128" height="75"/>
+        <element name="Favorite" positionX="-207" positionY="-108" width="128" height="90"/>
+        <element name="Sequence" positionX="-414" positionY="18" width="128" height="105"/>
+    </elements>
+</model>
