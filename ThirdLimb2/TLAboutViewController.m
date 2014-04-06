@@ -8,6 +8,8 @@
 
 #import "TLAboutViewController.h"
 #import "TLWebViewController.h"
+#import "TLUtilities.h"
+#import "TLViewController.h"
 
 @interface TLAboutViewController ()
 
@@ -31,6 +33,14 @@
   [super viewDidLoad];
   
 	// Do any additional setup after loading the view.
+  UINavigationController *navController =
+  (UINavigationController *)self.navigationController;
+    
+  // Set the font for the navigation bar
+  [navController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[TLUtilities navigationFont]}];
+  [navController.navigationBar setBackgroundImage:[TLUtilities backgroundImage]
+                                     forBarMetrics:UIBarMetricsDefault];
+
   [self.webView setDelegate:self];
   NSBundle *bundle = [NSBundle mainBundle];
   NSURL *indexFileURL = [bundle URLForResource:@"About" withExtension:@"html"];
@@ -47,6 +57,49 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+#pragma mark -
+#pragma mark UITabBarDelegate methods
+- (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
+  // Process based on tab bar item selection
+  tabBar.selectedItem = item;
+  switch (item.tag) {
+    case kHomeTab:
+    {
+      // Display home view
+      [self.delegate dismissViewController];
+      [self.delegate didSelectTabItem:item.tag];
+      break;
+    }
+    case kAsanasTab:
+    {
+      // Display asanas view
+      [self.delegate dismissViewController];
+      [self.delegate didSelectTabItem:item.tag];
+      break;
+    }
+    case kSequencesTab:
+    {
+      // Display sequences view
+      [self.delegate dismissViewController];
+      [self.delegate didSelectTabItem:item.tag];
+      break;
+    }
+    case kFavoritesTab:
+    {
+      [self.delegate dismissViewController];
+      [self.delegate didSelectTabItem:item.tag];
+      break;
+    }
+    case kAboutTab:
+      // Current view, just break
+      break;
+      
+    default:
+      break;
+  }
 }
 
 
@@ -124,7 +177,8 @@
       break;
     default:
     {
-      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Email" message:@"Sending Failed - Unknown Error"
+      UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Email"
+                                                      message:@"Sending Failed - Unknown Error"
                                                      delegate:self
                                             cancelButtonTitle:@"OK"
                                             otherButtonTitles: nil];

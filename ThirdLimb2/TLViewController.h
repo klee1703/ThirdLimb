@@ -7,8 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TLDismissViewControllerDelegate.h"
 
-#define kDetailTitle            @"Third Limb"
+#define kHomeTitle              @"Third Limb"
+#define kAboutTitle             @"About"
+#define kAsanasTitle            @"Asanas"
+#define kFavoritesTitle         @"Favorites"
+#define kSequencesTitle         @"Sequences"
 #define kThumbnailCellsPerRow   4
 #define kThumbnailWidth         190
 #define kThumbnailSpacing       1
@@ -26,12 +31,20 @@
 #define kMenuRestorative  @"Restorative"
 #define kMenuOther        @"Other"
 
+#define kHomeTab        0
+#define kAsanasTab      1
+#define kSequencesTab   2
+#define kFavoritesTab   3
+#define kAboutTab       4
 
-@interface TLViewController : UIViewController <UITabBarDelegate>
+
+@interface TLViewController : UIViewController <UITabBarDelegate, TLDismissViewControllerDelegate>
 
 // IB properties
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) IBOutlet UIButton *editFavorites;
+@property (weak, nonatomic) IBOutlet UILabel *viewLabel;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 // CoreData properties
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;

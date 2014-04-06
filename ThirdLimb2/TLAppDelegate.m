@@ -20,18 +20,19 @@
 {
   // Override point for customization after application launch.
   
-  UINavigationController *navController =
-  (UINavigationController *)self.window.rootViewController;
-  TLViewController *viewController = (TLViewController *)navController.topViewController;
+  //  UINavigationController *navController =
+  //(UINavigationController *)self.window.rootViewController;
+  //TLViewController *viewController = (TLViewController *)navController.topViewController;
+  TLViewController *viewController = (TLViewController *)self.window.rootViewController;
   viewController.managedObjectModel = self.managedObjectModel;
   viewController.managedObjectContext = self.managedObjectContext;
   
   
   // Set the font for the navigation bar
-  [[UINavigationBar appearance] setTitleTextAttributes:
-  @{NSFontAttributeName:[TLUtilities navigationFont]}];
-  [[UINavigationBar appearance] setBackgroundImage:[TLUtilities backgroundImage]
-                                     forBarMetrics:UIBarMetricsDefault];
+  //[[UINavigationBar appearance] setTitleTextAttributes:
+  //@{NSFontAttributeName:[TLUtilities navigationFont]}];
+  //[[UINavigationBar appearance] setBackgroundImage:[TLUtilities backgroundImage]
+  //                                   forBarMetrics:UIBarMetricsDefault];
 
   return YES;
 }

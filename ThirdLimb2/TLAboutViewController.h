@@ -8,8 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import <MessageUI/MFMailComposeViewController.h>
+#import "TLDismissViewControllerDelegate.h"
 
-@interface TLAboutViewController : UIViewController <UISplitViewControllerDelegate, UIWebViewDelegate, MFMailComposeViewControllerDelegate>
+@interface TLAboutViewController : UIViewController <UITabBarDelegate, UIWebViewDelegate, MFMailComposeViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
+
+// CoreData properties
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) NSManagedObjectModel *managedObjectModel;
+
+// Delegate for dismissing view
+@property (weak, nonatomic) id<TLDismissViewControllerDelegate> delegate;
 
 @end

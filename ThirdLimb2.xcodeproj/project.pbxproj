@@ -231,6 +231,7 @@
 		79FE889E18DFC5BB00B55A20 /* Home@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Home@2x.png"; sourceTree = "<group>"; };
 		79FE889F18DFC5BB00B55A20 /* Sequences.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Sequences.png; sourceTree = "<group>"; };
 		79FE88A018DFC5BB00B55A20 /* Sequences@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Sequences@2x.png"; sourceTree = "<group>"; };
+		79FEAB9118E7B60700864DF8 /* TLDismissViewControllerDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TLDismissViewControllerDelegate.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -460,6 +461,7 @@
 				79FE885D18DF8C0800B55A20 /* Main.storyboard */,
 				79FE886018DF8C0800B55A20 /* TLViewController.h */,
 				79FE886118DF8C0800B55A20 /* TLViewController.m */,
+				79FEAB9118E7B60700864DF8 /* TLDismissViewControllerDelegate.h */,
 				79FE886318DF8C0800B55A20 /* Images.xcassets */,
 				79FE885218DF8C0700B55A20 /* Supporting Files */,
 				79F5182E18E3CB3700EC615F /* TLAsanaThumbnailCell.h */,

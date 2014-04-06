@@ -8,10 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "Asana.h"
+#import "TLDismissViewControllerDelegate.h"
 
 #define kAddAsanaToFavoritesTitle  @"to list of favorites? Click Yes to confirm."
 
-@interface TLAsanaDetailViewController : UIViewController <UIWebViewDelegate, UIActionSheetDelegate>
+@interface TLAsanaDetailViewController : UIViewController <UITabBarDelegate,
+UIWebViewDelegate, UIActionSheetDelegate, UIPopoverControllerDelegate>
 
 @property (nonatomic, strong) Asana *asana;
 @property (nonatomic, strong) NSString *asanaName;
@@ -22,6 +24,9 @@
 @property (strong, nonatomic) UIPopoverController *notesPopoverController;
 @property(strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property(strong, nonatomic) NSSet *favoriteAsanas;
+
+// Delegate for dismissing view
+@property (weak, nonatomic) id<TLDismissViewControllerDelegate> delegate;
 
 - (IBAction)notesPopover:(id)sender;
 - (IBAction)addToFavorites:(id)sender;

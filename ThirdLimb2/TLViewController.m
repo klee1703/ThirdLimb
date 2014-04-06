@@ -12,6 +12,8 @@
 #import "Favorite.h"
 #import "TLAsanaThumbnailCell.h"
 #import "TLAsanaDetailViewController.h"
+#import "TLUtilities.h"
+#import "TLAboutViewController.h"
 
 @interface TLViewController ()
 
@@ -39,18 +41,25 @@
 {
   [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+  self.viewLabel.backgroundColor = [UIColor colorWithPatternImage:[TLUtilities backgroundImage]];
+  self.viewLabel.font = [TLUtilities navigationFont];
   
   // Load persistent data
   [self loadPersistentData];
   self.currentAsanas = self.asanas;
   
   // Set cells/row based on orientation
-  if (UIInterfaceOrientationIsLandscape([[UIDevice currentDevice] orientation])) {
+  UIInterfaceOrientation orientation = self.interfaceOrientation;
+  if (UIInterfaceOrientationIsLandscape(orientation)) {
     self.cellsPerRow = kThumbnailCellsPerRow + 1;
   }
   else {
     self.cellsPerRow = kThumbnailCellsPerRow;
   }
+  
+  // Configure favorites button
+  self.editFavorites.enabled = NO;
+  self.editFavorites.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -63,29 +72,72 @@
 #pragma mark -
 #pragma mark UITabBarDelegate methods
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
+  // Initialize with favorites not displayed
+  self.editFavorites.enabled = NO;
+  self.editFavorites.hidden = YES;
+  
   // Process based on tab bar item selection
-  switch (item.tag) {
-    case 0:
-      // Home tab
+  [self didSelectTabItem:item.tag];
+}
+
+
+#pragma mark -
+#pragma mark Select delegate method
+- (void)didSelectTabItem:(NSInteger)item {
+  switch (item) {
+    case kHomeTab:
+    {
+      // Current tab, just break
+      self.titleLabel.text = kHomeTitle;
+      self.currentAsanas = self.asanas;
+      [self.collectionView reloadData];
       break;
-    case 1:
-      // Asanas tab
+    }
+    case kAsanasTab:
+    {
+      // Display asanas view
+      self.titleLabel.text = kAsanasTitle;
+      self.currentAsanas = self.asanas;
+      [self.collectionView reloadData];
       break;
-    case 2:
-      // Sequences tab
+    }
+    case kSequencesTab:
+    {
+      // Display sequences view
+      self.titleLabel.text = kSequencesTitle;
+      self.currentAsanas = self.asanas;
+      [self.collectionView reloadData];
       break;
-    case 3:
-      // Favorites tab
+    }
+    case kFavoritesTab:
+    {
+      // Retrieve favorites (sorted alphabetically)
+      NSSet *favoriteAsanas = [[self getFavorites] asanas];
+      NSArray *objects = [favoriteAsanas allObjects];
+      NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"name"
+                                                             ascending:YES];
+      NSArray *sortedAsanas = [objects sortedArrayUsingDescriptors:
+                               [NSArray arrayWithObject:sort]];
+      self.currentAsanas = sortedAsanas;
+      
+      // Display favorites view
+      self.titleLabel.text = kFavoritesTitle;
+      self.editFavorites.enabled = YES;
+      self.editFavorites.hidden = NO;
       [self.editFavorites setTitle:@"Edit" forState:UIControlStateNormal];
+      [self.collectionView reloadData];
       break;
-    case 4:
-      // About tab
+    }
+    case kAboutTab:
+    {
+      // Display About view
       [self performSegueWithIdentifier:@"AboutSegue" sender:nil];
       break;
+    }
       
     default:
       break;
-  }
+  }  
 }
 
 #pragma mark -
@@ -128,10 +180,10 @@
       // Reload view
       NSSet *asanas = [self.favorite asanas];
       NSArray *objects = [asanas allObjects];
-      NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:YES];
+      NSSortDescriptor *sort = [NSSortDescriptor sortDescriptorWithKey:@"name"
+                                                             ascending:YES];
       NSArray *sortedAsanas = [objects sortedArrayUsingDescriptors:[NSArray arrayWithObject:sort]];
       self.asanas = sortedAsanas;
-      //      [self didSelectMenuItem:MenuFavorites];
     }
   }
   else {
@@ -141,9 +193,6 @@
     [self.collectionView deselectItemAtIndexPath:indexPath animated:YES];
   }
   
-}
-
-- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 
@@ -231,7 +280,8 @@ minimumLineSpacingForSectionAtIndex:(NSInteger)section {
                   layout:(UICollectionViewLayout*)collectionViewLayout
 referenceSizeForHeaderInSection:(NSInteger)section
 {
-  return CGSizeMake(1, -63);
+  return CGSizeMake(0, 0);
+  //  return CGSizeMake(1, -63);
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView
@@ -247,12 +297,50 @@ referenceSizeForFooterInSection:(NSInteger)section
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
   if ([segue.identifier isEqualToString:@"AsanaDetailSegue"]) {
-    TLAsanaDetailViewController *viewController = segue.destinationViewController;
+    UINavigationController *controller =
+    (UINavigationController *)segue.destinationViewController;
+    TLAsanaDetailViewController *viewController = [controller viewControllers][0];
     viewController.asana = sender;
     viewController.asanaName = [sender name];
     viewController.translation = [sender translation];
     viewController.managedObjectContext = self.managedObjectContext;
-    viewController.favoriteAsanas = [self.favorite asanas];
+    viewController.favoriteAsanas = [[self getFavorites] asanas];
+    //    viewController.favoriteAsanas = [self.favorite asanas];
+    viewController.delegate = self;
+  }
+  else if ([segue.identifier isEqualToString:@"AboutSegue"]) {
+    UINavigationController *controller =
+    (UINavigationController *)segue.destinationViewController;
+    TLAboutViewController *viewController = [controller viewControllers][0];
+    viewController.managedObjectContext = self.managedObjectContext;
+    viewController.managedObjectModel = self.managedObjectModel;
+    viewController.delegate = self;
+  }
+}
+
+
+
+
+#pragma mark -
+#pragma mark Delegate method
+- (void)dismissViewController {
+  [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+#pragma mark -
+#pragma Favorites methods
+
+- (IBAction)favoritesButtonTouched:(id)sender {
+  self.editFavoritesEnabled = !self.editFavoritesEnabled;
+  
+  if (self.editFavoritesEnabled) {
+    [self.editFavorites setTitle:@"Done" forState:UIControlStateNormal];
+    [self.collectionView reloadData];
+  }
+  else {
+    [self.editFavorites setTitle:@"Edit" forState:UIControlStateNormal];
+    [self.collectionView reloadData];
   }
 }
 
@@ -373,5 +461,17 @@ referenceSizeForFooterInSection:(NSInteger)section
              kMenuRestorative:restorative, kMenuOther:other};
   }
 }
+
+
+- (Favorite *) getFavorites {
+  NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+  NSEntityDescription *entity = [NSEntityDescription entityForName:@"Favorite"
+                                            inManagedObjectContext:self.managedObjectContext];
+  [fetchRequest setEntity:entity];
+  NSArray *favorites = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+  
+  return favorites[0];
+}
+
 
 @end
