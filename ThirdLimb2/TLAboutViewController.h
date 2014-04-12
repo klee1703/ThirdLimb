@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <MessageUI/MFMailComposeViewController.h>
 #import "TLDismissViewControllerDelegate.h"
+#import "TLAsanasCategorySelectDelegate.h"
 
 @interface TLAboutViewController : UIViewController <UITabBarDelegate, UIWebViewDelegate, MFMailComposeViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *webView;

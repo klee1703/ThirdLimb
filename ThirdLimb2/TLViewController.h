@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "TLDismissViewControllerDelegate.h"
+#import "TLAsanasCategorySelectDelegate.h"
 
 #define kHomeTitle              @"Third Limb"
 #define kAboutTitle             @"About"
@@ -31,27 +32,31 @@
 #define kMenuRestorative  @"Restorative"
 #define kMenuOther        @"Other"
 
-#define kHomeTab        0
-#define kAsanasTab      1
-#define kSequencesTab   2
-#define kFavoritesTab   3
-#define kAboutTab       4
+#define kHomeTab        4
+#define kAsanasTab      0
+#define kSequencesTab   1
+#define kFavoritesTab   2
+#define kAboutTab       3
 
 
-@interface TLViewController : UIViewController <UITabBarDelegate, TLDismissViewControllerDelegate>
+@interface TLViewController : UIViewController <UITabBarDelegate, TLDismissViewControllerDelegate, TLAsanasCategorySelectDelegate>
 
 // IB properties
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (strong, nonatomic) IBOutlet UIButton *editFavorites;
 @property (weak, nonatomic) IBOutlet UILabel *viewLabel;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UITabBar *tabBar;
+@property (weak, nonatomic) IBOutlet UIButton *asanaTypes;
 
 // CoreData properties
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 
 @property(nonatomic, strong) NSArray *asanas;
+@property (strong, nonatomic) UIPopoverController *asanasPopoverController;
 
 - (IBAction)favoritesButtonTouched:(id)sender;
+- (IBAction)asanaTypesButtonTouched:(id)sender;
 
 @end

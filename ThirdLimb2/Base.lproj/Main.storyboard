@@ -82,11 +82,10 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <items>
-                                    <tabBarItem title="Home" image="Home.png" id="MB6-i7-F0O"/>
-                                    <tabBarItem tag="1" title="Asanas" image="Asanas.png" id="PSd-uy-WwM"/>
-                                    <tabBarItem tag="2" title="Sequences" image="Sequences.png" id="xhA-Ag-N6A"/>
-                                    <tabBarItem tag="3" systemItem="favorites" id="cE4-jK-zKu"/>
-                                    <tabBarItem tag="4" title="About" image="About.png" id="RXp-du-mPd"/>
+                                    <tabBarItem title="Asanas" image="Asanas.png" id="PSd-uy-WwM"/>
+                                    <tabBarItem tag="1" title="Sequences" image="Sequences.png" id="xhA-Ag-N6A"/>
+                                    <tabBarItem tag="2" systemItem="favorites" id="cE4-jK-zKu"/>
+                                    <tabBarItem tag="3" title="About" image="About.png" id="RXp-du-mPd"/>
                                 </items>
                                 <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -103,8 +102,8 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Third Limb" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPp-1x-x4k">
-                                <rect key="frame" x="301" y="20" width="143" height="47"/>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Asanas" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aPp-1x-x4k">
+                                <rect key="frame" x="323" y="20" width="99" height="47"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="30"/>
@@ -121,16 +120,31 @@
                                     <action selector="favoritesButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="1rS-pv-G6c"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V8X-8B-lFL">
+                                <rect key="frame" x="702" y="26" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Types">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="asanaTypesButtonTouched:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7g4-gl-g9U"/>
+                                    <segue destination="ZEu-oE-vh2" kind="popover" identifier="AsanasSegue" popoverAnchorView="V8X-8B-lFL" id="aka-Td-hrt">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="qYx-SU-64i" secondAttribute="trailing" id="0yN-GO-G99"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Ccn-k4-awa" secondAttribute="bottom" id="6GY-RW-QnL"/>
+                            <constraint firstItem="V8X-8B-lFL" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="6" id="6xQ-OB-V58"/>
                             <constraint firstItem="MIt-ht-g59" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="6" id="Acp-kh-Fvq"/>
                             <constraint firstItem="aPp-1x-x4k" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="B9z-u8-ZCB"/>
                             <constraint firstAttribute="trailing" secondItem="MIt-ht-g59" secondAttribute="trailing" constant="20" id="Blz-tv-bHz"/>
                             <constraint firstItem="qYx-SU-64i" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="E78-RR-qrC"/>
                             <constraint firstAttribute="centerX" secondItem="aPp-1x-x4k" secondAttribute="centerX" constant="12" id="E90-vd-Lk1"/>
+                            <constraint firstAttribute="trailing" secondItem="V8X-8B-lFL" secondAttribute="trailing" constant="20" id="EjQ-Sv-hWZ"/>
                             <constraint firstItem="PhC-Y4-NGH" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="44" id="Gbc-OU-ycE"/>
                             <constraint firstItem="Ccn-k4-awa" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="UJD-6W-Vfv"/>
                             <constraint firstAttribute="trailing" secondItem="PhC-Y4-NGH" secondAttribute="trailing" id="XCZ-u1-Hij"/>
@@ -143,6 +157,7 @@
                     <connections>
                         <outlet property="collectionView" destination="PhC-Y4-NGH" id="uo5-n9-Uc4"/>
                         <outlet property="editFavorites" destination="MIt-ht-g59" id="5gH-Yy-48q"/>
+                        <outlet property="tabBar" destination="Ccn-k4-awa" id="fTU-Xf-WPt"/>
                         <outlet property="titleLabel" destination="aPp-1x-x4k" id="Lqc-kA-GlP"/>
                         <outlet property="viewLabel" destination="qYx-SU-64i" id="Neh-xD-qvu"/>
                         <segue destination="lZd-rF-Lta" kind="modal" identifier="AsanaDetailSegue" id="YpK-rj-8mb"/>
@@ -153,10 +168,10 @@
             </objects>
             <point key="canvasLocation" x="52" y="-1626"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Asanas Table View Controller-->
         <scene sceneID="CJN-oV-cv9">
             <objects>
-                <tableViewController storyboardIdentifier="AsanasTable" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZEu-oE-vh2" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="AsanasTable" modalPresentationStyle="formSheet" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ZEu-oE-vh2" customClass="TLAsanasTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="AsanasTable" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="mU7-A5-5aD">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -326,6 +341,7 @@
                             <outlet property="delegate" destination="ZEu-oE-vh2" id="gUl-6d-sMa"/>
                         </connections>
                     </tableView>
+                    <value key="contentSizeForViewInPopover" type="size" width="144" height="416"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eNq-B5-Ow0" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -353,11 +369,10 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <items>
-                                    <tabBarItem title="Home" image="Home.png" id="EYP-Ie-NC9"/>
-                                    <tabBarItem tag="1" title="Asanas" image="Asanas.png" id="swe-To-Hw9"/>
-                                    <tabBarItem tag="2" title="Sequences" image="Sequences.png" id="6gC-ZW-o8N"/>
-                                    <tabBarItem tag="3" systemItem="favorites" id="W70-wb-Isj"/>
-                                    <tabBarItem tag="4" title="About" image="About.png" id="W2Q-T7-8vw"/>
+                                    <tabBarItem title="Asanas" image="Asanas.png" id="swe-To-Hw9"/>
+                                    <tabBarItem tag="1" title="Sequences" image="Sequences.png" id="6gC-ZW-o8N"/>
+                                    <tabBarItem tag="2" systemItem="favorites" id="W70-wb-Isj"/>
+                                    <tabBarItem tag="3" title="About" image="About.png" id="W2Q-T7-8vw"/>
                                 </items>
                                 <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -431,11 +446,10 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <items>
-                                    <tabBarItem title="Home" image="Home.png" id="hzg-R1-JFI"/>
-                                    <tabBarItem tag="1" title="Asanas" image="Asanas.png" id="wKj-od-IHd"/>
-                                    <tabBarItem tag="2" title="Sequences" image="Sequences.png" id="hO8-v7-N6J"/>
-                                    <tabBarItem tag="3" systemItem="favorites" id="OST-N2-dyG"/>
-                                    <tabBarItem tag="4" title="About" image="About.png" id="yue-bz-8aR"/>
+                                    <tabBarItem title="Asanas" image="Asanas.png" id="wKj-od-IHd"/>
+                                    <tabBarItem tag="1" title="Sequences" image="Sequences.png" id="hO8-v7-N6J"/>
+                                    <tabBarItem tag="2" systemItem="favorites" id="OST-N2-dyG"/>
+                                    <tabBarItem tag="3" title="About" image="About.png" id="yue-bz-8aR"/>
                                 </items>
                                 <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -573,7 +587,7 @@
                             <constraint firstItem="SUw-yI-bxw" firstAttribute="leading" secondItem="uyj-JB-esQ" secondAttribute="leading" id="w0f-MU-5B9"/>
                         </constraints>
                     </view>
-                    <value key="contentSizeForViewInPopover" type="size" width="430" height="500"/>
+                    <value key="contentSizeForViewInPopover" type="size" width="256" height="480"/>
                     <connections>
                         <outlet property="notesArea" destination="3fu-wL-eSb" id="UK7-0c-UIA"/>
                     </connections>
@@ -588,7 +602,6 @@
         <image name="Asanas.png" width="29" height="29"/>
         <image name="Close.png" width="29" height="29"/>
         <image name="Favorites.png" width="29" height="29"/>
-        <image name="Home.png" width="29" height="29"/>
         <image name="Sequences.png" width="29" height="29"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

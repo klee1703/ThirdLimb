@@ -12,5 +12,6 @@
 
 -(void) dismissViewController;
 -(void) didSelectTabItem:(NSInteger)item;
+-(void) selectTabItem:(NSInteger)item;
 
 @end

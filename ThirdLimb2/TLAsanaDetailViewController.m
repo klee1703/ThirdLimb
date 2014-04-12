@@ -82,18 +82,22 @@
     case kHomeTab:
       // Display home view
       [self.delegate dismissViewController];
+      [self.delegate didSelectTabItem:item.tag];
       break;
     case kAsanasTab:
       // Display asanas view
       [self.delegate dismissViewController];
+      [self.delegate didSelectTabItem:item.tag];
       break;
     case kSequencesTab:
       // Display sequences view
+      [self.delegate didSelectTabItem:item.tag];
       [self.delegate dismissViewController];
       break;
     case kFavoritesTab:
       // Display favorites view
       [self.delegate dismissViewController];
+      [self.delegate didSelectTabItem:item.tag];
       break;
     case kAboutTab:
       // Display about view
@@ -126,6 +130,7 @@
                                  otherButtonTitles:nil];
   [selectAction showInView:self.view];
 }
+
 
 #pragma mark -
 #pragma mark Segue methods

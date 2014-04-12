@@ -14,6 +14,7 @@
 #import "TLAsanaDetailViewController.h"
 #import "TLUtilities.h"
 #import "TLAboutViewController.h"
+#import "TLAsanasTableViewController.h"
 
 @interface TLViewController ()
 
@@ -60,6 +61,10 @@
   // Configure favorites button
   self.editFavorites.enabled = NO;
   self.editFavorites.hidden = YES;
+  
+  // Configure types button
+  self.asanaTypes.enabled = YES;
+  self.asanaTypes.hidden = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -84,6 +89,12 @@
 #pragma mark -
 #pragma mark Select delegate method
 - (void)didSelectTabItem:(NSInteger)item {
+  // Display tab bar item
+  NSArray *items = self.tabBar.items;
+  UITabBarItem *barItem = (UITabBarItem *)items[item];
+  [self.tabBar setSelectedItem:barItem];
+  
+  // Process selection
   switch (item) {
     case kHomeTab:
     {
@@ -95,14 +106,31 @@
     }
     case kAsanasTab:
     {
+      // Configure types button
+      self.asanaTypes.enabled = YES;
+      self.asanaTypes.hidden = NO;
+      
       // Display asanas view
       self.titleLabel.text = kAsanasTitle;
       self.currentAsanas = self.asanas;
       [self.collectionView reloadData];
+      /*
+      if (self.asanasPopoverController == nil) {
+        [self performSegueWithIdentifier:@"AsanasSegue" sender:nil];
+      }
+      else {
+        [_asanasPopoverController dismissPopoverAnimated:YES];
+        self.asanasPopoverController = nil;
+      }
+       */
       break;
     }
     case kSequencesTab:
     {
+      // Configure types button
+      self.asanaTypes.enabled = NO;
+      self.asanaTypes.hidden = YES;
+      
       // Display sequences view
       self.titleLabel.text = kSequencesTitle;
       self.currentAsanas = self.asanas;
@@ -111,6 +139,10 @@
     }
     case kFavoritesTab:
     {
+      // Configure types button
+      self.asanaTypes.enabled = NO;
+      self.asanaTypes.hidden = YES;
+      
       // Retrieve favorites (sorted alphabetically)
       NSSet *favoriteAsanas = [[self getFavorites] asanas];
       NSArray *objects = [favoriteAsanas allObjects];
@@ -130,6 +162,10 @@
     }
     case kAboutTab:
     {
+      // Configure types button
+      self.asanaTypes.enabled = NO;
+      self.asanaTypes.hidden = YES;
+      
       // Display About view
       [self performSegueWithIdentifier:@"AboutSegue" sender:nil];
       break;
@@ -139,6 +175,16 @@
       break;
   }  
 }
+
+- (void)selectTabItem:(NSInteger)item {
+  NSArray *items = self.tabBar.items;
+  UITabBarItem *barItem = (UITabBarItem *)items[item];
+  [self.tabBar setSelectedItem:barItem];
+  self.titleLabel.text = kAsanasTitle;
+  self.currentAsanas = self.asanas;
+  [self.collectionView reloadData];
+}
+
 
 #pragma mark -
 #pragma mark UIView methods
@@ -316,9 +362,16 @@ referenceSizeForFooterInSection:(NSInteger)section
     viewController.managedObjectModel = self.managedObjectModel;
     viewController.delegate = self;
   }
+  else if ([segue.identifier isEqualToString:@"AsanasSegue"]) {
+    TLAsanasTableViewController *controller =
+    (TLAsanasTableViewController *)segue.destinationViewController;
+    controller.delegate = self;
+    
+    // Retrieve popover controller for programmatic dismissal
+    UIStoryboardPopoverSegue *popoverSegue = (UIStoryboardPopoverSegue *)segue;
+    self.asanasPopoverController = popoverSegue.popoverController;
+  }
 }
-
-
 
 
 #pragma mark -
@@ -329,7 +382,7 @@ referenceSizeForFooterInSection:(NSInteger)section
 
 
 #pragma mark -
-#pragma Favorites methods
+#pragma Button methods
 
 - (IBAction)favoritesButtonTouched:(id)sender {
   self.editFavoritesEnabled = !self.editFavoritesEnabled;
@@ -341,6 +394,13 @@ referenceSizeForFooterInSection:(NSInteger)section
   else {
     [self.editFavorites setTitle:@"Edit" forState:UIControlStateNormal];
     [self.collectionView reloadData];
+  }
+}
+
+- (IBAction)asanaTypesButtonTouched:(id)sender {
+  if (self.asanasPopoverController != nil){
+    [self.asanasPopoverController dismissPopoverAnimated:YES];
+    self.asanasPopoverController = nil;
   }
 }
 
@@ -473,5 +533,236 @@ referenceSizeForFooterInSection:(NSInteger)section
   return favorites[0];
 }
 
+
+#pragma mark -
+#pragma mark Asana sorting methods
+
+- (NSFetchRequest *)getFetchRequest {
+  NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+  NSEntityDescription *entity = [NSEntityDescription entityForName:@"Asana"
+                                            inManagedObjectContext:self.managedObjectContext];
+  [fetchRequest setEntity:entity];
+  
+  return fetchRequest;
+}
+
+- (NSArray *)standing {
+  if (_standing == nil) {
+    // Load Asana entities from persistent store
+    NSFetchRequest *fetchRequest = [self getFetchRequest];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY asanaTypes.name == %@", kMenuStanding];
+    [fetchRequest setPredicate:predicate];
+    NSSortDescriptor *sortByName = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    [fetchRequest setSortDescriptors:@[sortByName]];
+    _standing = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    
+  }
+  
+  return _standing;
+}
+
+- (NSArray *)seated {
+  if (_seated == nil) {
+    // Load Asana entities from persistent store
+    NSFetchRequest *fetchRequest = [self getFetchRequest];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY asanaTypes.name == %@", kMenuSeated];
+    [fetchRequest setPredicate:predicate];
+    NSSortDescriptor *sortByName = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    [fetchRequest setSortDescriptors:@[sortByName]];
+    _seated = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    
+  }
+  
+  return _seated;
+}
+
+- (NSArray *)forwardBends {
+  if (_forwardBends == nil) {
+    // Load Asana entities from persistent store
+    NSFetchRequest *fetchRequest = [self getFetchRequest];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY asanaTypes.name == %@", kMenuForward];
+    [fetchRequest setPredicate:predicate];
+    NSSortDescriptor *sortByName = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    [fetchRequest setSortDescriptors:@[sortByName]];
+    _forwardBends = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    
+  }
+  
+  return _forwardBends;
+}
+
+- (NSArray *)backbends {
+  if (_backbends == nil) {
+    // Load Asana entities from persistent store
+    NSFetchRequest *fetchRequest = [self getFetchRequest];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY asanaTypes.name == %@", kMenuBackbends];
+    [fetchRequest setPredicate:predicate];
+    NSSortDescriptor *sortByName = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    [fetchRequest setSortDescriptors:@[sortByName]];
+    _backbends = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    
+  }
+  
+  return _backbends;
+}
+
+- (NSArray *)twists {
+  if (_twists == nil) {
+    // Load Asana entities from persistent store
+    NSFetchRequest *fetchRequest = [self getFetchRequest];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY asanaTypes.name == %@", kMenuTwists];
+    [fetchRequest setPredicate:predicate];
+    NSSortDescriptor *sortByName = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    [fetchRequest setSortDescriptors:@[sortByName]];
+    _twists = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    
+  }
+  
+  return _twists;
+}
+
+- (NSArray *)inversions {
+  if (_inversions == nil) {
+    // Load Asana entities from persistent store
+    NSFetchRequest *fetchRequest = [self getFetchRequest];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"ANY asanaTypes.name == %@", kMenuInversions];
+    [fetchRequest setPredicate:predicate];
+    NSSortDescriptor *sortByName = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    [fetchRequest setSortDescriptors:@[sortByName]];
+    _inversions = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    
+  }
+  
+  return _inversions;
+}
+
+- (NSArray *)supine {
+  if (_supine == nil) {
+    // Load Asana entities from persistent store
+    NSFetchRequest *fetchRequest = [self getFetchRequest];
+    NSPredicate *standingPredicate = [NSPredicate predicateWithFormat:@"ANY asanaTypes.name == %@", kMenuSupine];
+    [fetchRequest setPredicate:standingPredicate];
+    NSSortDescriptor *sortByName = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    [fetchRequest setSortDescriptors:@[sortByName]];
+    _supine = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    
+  }
+  
+  return _supine;
+}
+
+- (NSArray *)abdominals {
+  if (_abdominals == nil) {
+    // Load Asana entities from persistent store
+    NSFetchRequest *fetchRequest = [self getFetchRequest];
+    NSPredicate *standingPredicate = [NSPredicate predicateWithFormat:@"ANY asanaTypes.name == %@", kMenuAbdominals];
+    [fetchRequest setPredicate:standingPredicate];
+    NSSortDescriptor *sortByName = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    [fetchRequest setSortDescriptors:@[sortByName]];
+    _abdominals = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    
+  }
+  
+  return _abdominals;
+}
+
+- (NSArray *)restorative {
+  if (_restorative == nil) {
+    // Load Asana entities from persistent store
+    NSFetchRequest *fetchRequest = [self getFetchRequest];
+    NSPredicate *standingPredicate = [NSPredicate predicateWithFormat:@"ANY asanaTypes.name == %@", kMenuRestorative];
+    [fetchRequest setPredicate:standingPredicate];
+    NSSortDescriptor *sortByName = [[NSSortDescriptor alloc] initWithKey:@"name" ascending:YES];
+    [fetchRequest setSortDescriptors:@[sortByName]];
+    _restorative = [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    
+  }
+  
+  return _restorative;
+}
+
+
+#pragma mark -
+#pragma mark Asana category delegate methods
+
+/**
+ * Execute logic according to selected category
+ */
+- (void)didSelectAsanaCategory:(NSInteger)category
+{
+  // Perform operation based on category selected
+  switch (category) {
+    case StandingPoses:
+    {
+      self.titleLabel.text = kMenuStanding;
+      self.currentAsanas = self.standing;
+      [self.collectionView reloadData];
+      break;
+    }
+    case ForwardBends:
+    {
+      self.titleLabel.text = kMenuForward;
+      self.currentAsanas = self.forwardBends;
+      [self.collectionView reloadData];
+      break;
+    }
+    case Twists:
+    {
+      self.titleLabel.text = kMenuTwists;
+      self.currentAsanas = self.twists;
+      [self.collectionView reloadData];
+      break;
+    }
+    case Inversions:
+    {
+      self.titleLabel.text = kMenuInversions;
+      self.currentAsanas = self.inversions;
+      [self.collectionView reloadData];
+      break;
+    }
+    case SeatedPoses:
+    {
+      self.titleLabel.text = kMenuSeated;
+      self.currentAsanas = self.seated;
+      [self.collectionView reloadData];
+      break;
+    }
+    case SupinePoses:
+    {
+      self.titleLabel.text = kMenuSupine;
+      self.currentAsanas = self.supine;
+      [self.collectionView reloadData];
+      break;
+    }
+    case Backbends:
+    {
+      self.titleLabel.text = kMenuBackbends;
+      self.currentAsanas = self.backbends;
+      [self.collectionView reloadData];
+      break;
+    }
+    case Abdominals:
+    {
+      self.titleLabel.text = kMenuAbdominals;
+      self.currentAsanas = self.abdominals;
+      [self.collectionView reloadData];
+      break;
+    }
+    case Restorative:
+    {
+      self.titleLabel.text = kMenuRestorative;
+      self.currentAsanas = self.restorative;
+      [self.collectionView reloadData];
+      break;
+    }
+      
+    default:
+      break;
+  }
+  
+  // Then dismiss popover controller
+  [self.asanasPopoverController dismissPopoverAnimated:YES];
+  self.asanasPopoverController = nil;
+}
 
 @end
