@@ -7,11 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "TLDismissViewControllerDelegate.h"
 
-@interface TLWebViewController : UIViewController <UIWebViewDelegate>
+@interface TLWebViewController : UIViewController <UIWebViewDelegate, UITabBarDelegate>
 
 @property (strong) NSURL *url;
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet UITabBar *tabBar;
+
+// Delegate for dismissing view
+@property (weak, nonatomic) id<TLDismissViewControllerDelegate> delegate;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil url:(NSURL *)url;
 

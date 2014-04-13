@@ -41,6 +41,12 @@
   [navController.navigationBar setBackgroundImage:[TLUtilities backgroundImage]
                                      forBarMetrics:UIBarMetricsDefault];
 
+  // Set selected tab bar item appropriately
+  NSArray *items = self.tabBar.items;
+  UITabBarItem *barItem = (UITabBarItem *)items[kAboutTab];
+  [self.tabBar setSelectedItem:barItem];
+  
+  // Load web view
   [self.webView setDelegate:self];
   NSBundle *bundle = [NSBundle mainBundle];
   NSURL *indexFileURL = [bundle URLForResource:@"About" withExtension:@"html"];

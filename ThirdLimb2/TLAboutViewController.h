@@ -13,6 +13,7 @@
 
 @interface TLAboutViewController : UIViewController <UITabBarDelegate, UIWebViewDelegate, MFMailComposeViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIWebView *webView;
+@property (weak, nonatomic) IBOutlet UITabBar *tabBar;
 
 // CoreData properties
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
