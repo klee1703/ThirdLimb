@@ -72,7 +72,6 @@
 		79FC7CAC18E12F3A0014D54A /* TLAboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FC7CAB18E12F3A0014D54A /* TLAboutViewController.m */; };
 		79FC7CAF18E12F4C0014D54A /* TLWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FC7CAE18E12F4C0014D54A /* TLWebViewController.m */; };
 		79FC7CB218E12F630014D54A /* About.html in Resources */ = {isa = PBXBuildFile; fileRef = 79FC7CB018E12F630014D54A /* About.html */; };
-		79FC7CB318E12F630014D54A /* FAQs.html in Resources */ = {isa = PBXBuildFile; fileRef = 79FC7CB118E12F630014D54A /* FAQs.html */; };
 		79FC7CB618E132C50014D54A /* ThirdLimb.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 79FC7CB418E132C50014D54A /* ThirdLimb.xcdatamodeld */; };
 		79FC7CBA18E1330B0014D54A /* AsanaType.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FC7CB918E1330B0014D54A /* AsanaType.m */; };
 		79FC7CBD18E1330B0014D54A /* Sequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FC7CBC18E1330B0014D54A /* Sequence.m */; };
@@ -192,7 +191,6 @@
 		79FC7CAD18E12F4C0014D54A /* TLWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLWebViewController.h; sourceTree = "<group>"; };
 		79FC7CAE18E12F4C0014D54A /* TLWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLWebViewController.m; sourceTree = "<group>"; };
 		79FC7CB018E12F630014D54A /* About.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = About.html; sourceTree = "<group>"; };
-		79FC7CB118E12F630014D54A /* FAQs.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = FAQs.html; sourceTree = "<group>"; };
 		79FC7CB518E132C50014D54A /* ThirdLimb.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ThirdLimb.xcdatamodel; sourceTree = "<group>"; };
 		79FC7CB818E1330B0014D54A /* AsanaType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsanaType.h; sourceTree = "<group>"; };
 		79FC7CB918E1330B0014D54A /* AsanaType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsanaType.m; sourceTree = "<group>"; };
@@ -379,7 +377,6 @@
 			isa = PBXGroup;
 			children = (
 				79FC7CB018E12F630014D54A /* About.html */,
-				79FC7CB118E12F630014D54A /* FAQs.html */,
 				79FC7CAD18E12F4C0014D54A /* TLWebViewController.h */,
 				79FC7CAE18E12F4C0014D54A /* TLWebViewController.m */,
 				79FC7CAA18E12F3A0014D54A /* TLAboutViewController.h */,
@@ -639,7 +636,6 @@
 				79FC7CCD18E13CA70014D54A /* Favorites.plist in Resources */,
 				79FC7C8B18E12EEF0014D54A /* Marichyasana3_thumbnail.png in Resources */,
 				79FC7C9118E12EEF0014D54A /* Prassarita-Padottanasana1_thumbnail.png in Resources */,
-				79FC7CB318E12F630014D54A /* FAQs.html in Resources */,
 				79FC7C5118E12E7A0014D54A /* AdhoMukhaSvanasana_thumbnail.png in Resources */,
 				79FC7C5A18E12E8B0014D54A /* Baddha-Konasana_thumbnail.png in Resources */,
 				79083D6218F3A62E0005D874 /* icon_40.png in Resources */,
