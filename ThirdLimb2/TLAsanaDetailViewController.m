@@ -11,6 +11,7 @@
 #import "Favorite.h"
 #import "TLUtilities.h"
 #import "TLViewController.h"
+#import "TLAboutViewController.h"
 
 @interface TLAsanaDetailViewController ()
 
@@ -32,19 +33,14 @@
   [super viewDidLoad];
   
 	// Do any additional setup after loading the view.
-  //  self.window.rootViewController.navigationItem
-  [self.navigationItem setTitle:self.asanaName];
+  self.viewLabel.backgroundColor = [UIColor colorWithPatternImage:[TLUtilities backgroundImage]];
+  self.viewLabel.font = [TLUtilities navigationFont];
+  self.titleLabel.text = self.asanaName;
   [self.detailWebView setDelegate:self];
+  self.rootViewController = self.delegate;
   
   // Set popover delegate
   self.notesPopoverController.delegate = self;
-  
-  // Set the font for the navigation bar
-  UINavigationController *navController =
-  (UINavigationController *)self.navigationController;
-  [navController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[TLUtilities navigationFont]}];
-  [navController.navigationBar setBackgroundImage:[TLUtilities backgroundImage]
-                                    forBarMetrics:UIBarMetricsDefault];
 
   // Set asana translation
   self.asanaTranslation.text = [NSString stringWithFormat:@"%@%@%@", @"(", self.translation, @")"];
@@ -100,7 +96,7 @@
       [self.delegate didSelectTabItem:item.tag];
       break;
     case kAboutTab:
-      // Display about view
+      // Display About view
       [self performSegueWithIdentifier:@"AboutSegue" sender:nil];
       break;
       
@@ -135,10 +131,20 @@
 #pragma mark -
 #pragma mark Segue methods
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-  [self.notesPopoverController setPopoverContentSize:CGSizeMake(540, 620) animated:YES];
-  TLNotesViewController *controller = (TLNotesViewController *)segue.destinationViewController;
-  controller.asana = self.asana;
-  controller.managedObjectContext = self.managedObjectContext;
+  if ([segue.identifier isEqualToString:@"NotesSegue"]) {
+    [self.notesPopoverController setPopoverContentSize:CGSizeMake(540, 620) animated:YES];
+    TLNotesViewController *controller = (TLNotesViewController *)segue.destinationViewController;
+    controller.asana = self.asana;
+    controller.managedObjectContext = self.managedObjectContext;
+  }
+  else if ([segue.identifier isEqualToString:@"AboutSegue"]) {
+    UINavigationController *controller =
+    (UINavigationController *)segue.destinationViewController;
+    TLAboutViewController *viewController = [controller viewControllers][0];
+    viewController.managedObjectContext = self.managedObjectContext;
+    //    viewController.managedObjectModel = self.managedObjectModel;
+    viewController.delegate = self.rootViewController;
+  }
 }
 
 

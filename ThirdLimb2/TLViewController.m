@@ -65,6 +65,12 @@
   // Configure types button
   self.asanaTypes.enabled = YES;
   self.asanaTypes.hidden = NO;
+  
+  // Add observer for notification
+  [[NSNotificationCenter defaultCenter] addObserver:self
+                                           selector:@selector(applicationWillEnterForeground:)
+                                               name:UIApplicationWillEnterForegroundNotification
+                                             object:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -73,6 +79,20 @@
   // Dispose of any resources that can be recreated.
 }
 
+- (void)applicationWillEnterForeground:(NSNotification *)notification {
+  // Set cells/row based on orientation
+  UIInterfaceOrientation orientation = self.interfaceOrientation;
+  if (UIInterfaceOrientationIsLandscape(orientation)) {
+    self.cellsPerRow = kThumbnailCellsPerRow + 1;
+  }
+  else {
+    self.cellsPerRow = kThumbnailCellsPerRow;
+  }
+  
+  // Just update collection accordingly for a rotation
+  [self.collectionView performBatchUpdates:nil completion:nil];
+  [self.collectionView reloadData];
+}
 
 #pragma mark -
 #pragma mark UITabBarDelegate methods
@@ -343,9 +363,7 @@ referenceSizeForFooterInSection:(NSInteger)section
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
   if ([segue.identifier isEqualToString:@"AsanaDetailSegue"]) {
-    UINavigationController *controller =
-    (UINavigationController *)segue.destinationViewController;
-    TLAsanaDetailViewController *viewController = [controller viewControllers][0];
+    TLAsanaDetailViewController *viewController = segue.destinationViewController;
     viewController.asana = sender;
     viewController.asanaName = [sender name];
     viewController.translation = [sender translation];

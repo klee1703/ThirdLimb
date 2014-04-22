@@ -20,10 +20,13 @@ UIWebViewDelegate, UIActionSheetDelegate, UIPopoverControllerDelegate>
 @property (nonatomic, strong) NSString *translation;
 @property (weak, nonatomic) IBOutlet UIWebView *detailWebView;
 @property (weak, nonatomic) IBOutlet UILabel *asanaTranslation;
+@property (weak, nonatomic) IBOutlet UILabel *viewLabel;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UIButton *favoritesButton;
 @property (strong, nonatomic) UIPopoverController *notesPopoverController;
 @property(strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property(strong, nonatomic) NSSet *favoriteAsanas;
+@property(strong, nonatomic) id<TLDismissViewControllerDelegate> rootViewController;
 
 // Delegate for dismissing view
 @property (weak, nonatomic) id<TLDismissViewControllerDelegate> delegate;
