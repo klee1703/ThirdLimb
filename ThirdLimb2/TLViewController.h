@@ -34,8 +34,8 @@
 
 #define kHomeTab        4
 #define kAsanasTab      0
-#define kSequencesTab   1
-#define kFavoritesTab   2
+#define kFavoritesTab   1
+#define kSequencesTab   2
 #define kAboutTab       3
 
 
