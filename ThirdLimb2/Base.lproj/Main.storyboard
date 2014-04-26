@@ -363,7 +363,7 @@
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZKY-TG-WD7">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="975"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137254901957" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
                             <tabBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xBA-Cc-muk">
                                 <rect key="frame" x="0.0" y="975" width="768" height="49"/>
@@ -429,7 +429,7 @@
                             <webView contentMode="scaleToFill" restorationIdentifier="AsanaView" translatesAutoresizingMaskIntoConstraints="NO" id="1GV-nm-bE5">
                                 <rect key="frame" x="0.0" y="98" width="768" height="926"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137254901957" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                             </webView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vjM-JS-cmH">
                                 <rect key="frame" x="702" y="68" width="41" height="31"/>
@@ -475,11 +475,25 @@
                                 <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="30"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yvh-XM-rqm">
+                                <rect key="frame" x="706" y="26" width="32" height="29"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="32" id="e5q-eU-MWJ"/>
+                                </constraints>
+                                <state key="normal" image="star.png">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addToFavorites:" destination="yT4-vt-0td" eventType="touchUpInside" id="aJd-wk-SyJ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.47843137254901957" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="Ze2-SD-s82" secondAttribute="trailing" id="02C-u1-Hek"/>
                             <constraint firstAttribute="trailing" secondItem="1GV-nm-bE5" secondAttribute="trailing" id="1qk-Ld-am8"/>
+                            <constraint firstAttribute="trailing" secondItem="yvh-XM-rqm" secondAttribute="trailing" constant="30" id="33f-In-zuv"/>
                             <constraint firstItem="vjM-JS-cmH" firstAttribute="top" secondItem="Ze2-SD-s82" secondAttribute="top" constant="5" id="3eq-3t-mc7"/>
                             <constraint firstItem="1GV-nm-bE5" firstAttribute="leading" secondItem="iVb-fs-Jvb" secondAttribute="leading" id="4kO-dc-dVV"/>
                             <constraint firstItem="vjM-JS-cmH" firstAttribute="top" secondItem="ExO-aK-tSI" secondAttribute="bottom" id="63p-KD-Otd"/>
@@ -494,10 +508,12 @@
                             <constraint firstItem="ExO-aK-tSI" firstAttribute="top" secondItem="cEB-Ul-04m" secondAttribute="bottom" id="LyG-Rn-Can"/>
                             <constraint firstItem="ExO-aK-tSI" firstAttribute="leading" secondItem="iVb-fs-Jvb" secondAttribute="leading" id="R1K-3B-693"/>
                             <constraint firstItem="Ze2-SD-s82" firstAttribute="top" secondItem="cEB-Ul-04m" secondAttribute="bottom" constant="43" id="VLF-ki-ErQ"/>
+                            <constraint firstItem="yvh-XM-rqm" firstAttribute="top" secondItem="cEB-Ul-04m" secondAttribute="bottom" constant="6" id="VS9-Vz-j80"/>
                             <constraint firstItem="53A-PB-bVd" firstAttribute="leading" secondItem="iVb-fs-Jvb" secondAttribute="leading" id="Va6-f8-Ltu"/>
                             <constraint firstItem="xgS-ti-G7k" firstAttribute="top" secondItem="53A-PB-bVd" secondAttribute="bottom" id="Vv9-1O-mGm"/>
                             <constraint firstItem="Ze2-SD-s82" firstAttribute="top" secondItem="cEB-Ul-04m" secondAttribute="bottom" constant="43" id="bBI-cm-aVB"/>
                             <constraint firstItem="xgS-ti-G7k" firstAttribute="top" secondItem="1GV-nm-bE5" secondAttribute="bottom" id="cQT-vO-zx7"/>
+                            <constraint firstItem="Ze2-SD-s82" firstAttribute="top" secondItem="yvh-XM-rqm" secondAttribute="bottom" constant="8" id="gK2-Jx-phf"/>
                             <constraint firstItem="qVd-lX-5iU" firstAttribute="top" secondItem="iVb-fs-Jvb" secondAttribute="top" id="hDY-0P-nqU"/>
                             <constraint firstAttribute="trailing" secondItem="53A-PB-bVd" secondAttribute="trailing" id="n5V-Wa-WTB"/>
                             <constraint firstAttribute="trailing" secondItem="vjM-JS-cmH" secondAttribute="trailing" constant="25" id="suN-Dd-TnA"/>
@@ -521,7 +537,7 @@
                     <connections>
                         <outlet property="asanaTranslation" destination="Ze2-SD-s82" id="6mz-7S-qe2"/>
                         <outlet property="detailWebView" destination="1GV-nm-bE5" id="hE3-7o-Qe4"/>
-                        <outlet property="favoritesButton" destination="elQ-Lb-oEs" id="nWz-2U-15X"/>
+                        <outlet property="favoritesButton" destination="yvh-XM-rqm" id="tYf-om-fJ7"/>
                         <outlet property="titleLabel" destination="ExO-aK-tSI" id="mzC-YC-3aq"/>
                         <outlet property="viewLabel" destination="qVd-lX-5iU" id="Hcl-mo-sBr"/>
                         <segue destination="App-zL-CzH" kind="modal" identifier="AboutSegue" id="bKw-SK-oCw"/>
