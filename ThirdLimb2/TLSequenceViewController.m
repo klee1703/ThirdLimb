@@ -10,6 +10,7 @@
 #import "TLUtilities.h"
 #import "TLViewController.h"
 #import "TLAboutViewController.h"
+#import "TLSequencesAnimationViewController.h"
 
 @interface TLSequenceViewController ()
 
@@ -91,7 +92,21 @@
     viewController.managedObjectModel = self.managedObjectModel;
     viewController.delegate = self.delegate;
   }
+  else if ([segue.identifier isEqualToString:@"AnimationSegue"]) {
+    //    TLSequencesAnimationViewController *controller =
+    //(TLSequencesAnimationViewController *)segue.destinationViewController;
+    
+    // Retrieve popover controller for programmatic dismissal
+    UIStoryboardPopoverSegue *popoverSegue = (UIStoryboardPopoverSegue *)segue;
+    self.sequencesPopoverController = popoverSegue.popoverController;
+  }
 }
 
 
+- (IBAction)animateSequence:(id)sender {
+  if (self.sequencesPopoverController != nil){
+    [self.sequencesPopoverController dismissPopoverAnimated:YES];
+    self.sequencesPopoverController = nil;
+  }
+}
 @end

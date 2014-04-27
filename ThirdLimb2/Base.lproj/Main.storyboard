@@ -386,8 +386,17 @@
                     </view>
                     <navigationItem key="navigationItem" title="Sequences" id="Wyx-jh-jUg">
                         <barButtonItem key="leftBarButtonItem" image="Sequences.png" id="MIL-5z-6Vu"/>
+                        <barButtonItem key="rightBarButtonItem" title="Animate" id="QeO-PJ-fNT">
+                            <connections>
+                                <action selector="animateSequence:" destination="bJT-QC-Jsq" id="vy4-oq-611"/>
+                                <segue destination="Em5-SO-eQZ" kind="popover" identifier="AnimationSegue" popoverAnchorBarButtonItem="QeO-PJ-fNT" id="nwf-kg-tyw">
+                                    <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                </segue>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="animateButton" destination="QeO-PJ-fNT" id="Y2t-Ed-xMa"/>
                         <segue destination="App-zL-CzH" kind="modal" identifier="AboutSegue" animates="NO" id="iOv-ew-LcM"/>
                     </connections>
                 </viewController>
@@ -450,6 +459,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ow-eU-Yel" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2095" y="-309"/>
+        </scene>
+        <!--Sequences Animation View Controller-->
+        <scene sceneID="hHW-pk-Fi3">
+            <objects>
+                <viewController storyboardIdentifier="SequencesAnimation" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Em5-SO-eQZ" customClass="TLSequencesAnimationViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="7Cs-3A-aZv"/>
+                        <viewControllerLayoutGuide type="bottom" id="mgU-Jt-1r9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="OTr-B9-XGq" customClass="SKView">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <value key="contentSizeForViewInPopover" type="size" width="192" height="192"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FqJ-eg-Dg8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3047" y="-302"/>
         </scene>
         <!--Asana Detail View Controller - Asana-->
         <scene sceneID="x7I-IG-yOw">
@@ -708,7 +736,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="bKw-SK-oCw"/>
+        <segue reference="iOv-ew-LcM"/>
         <segue reference="kgi-3A-1It"/>
     </inferredMetricsTieBreakers>
 </document>
