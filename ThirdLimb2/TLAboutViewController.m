@@ -10,6 +10,7 @@
 #import "TLWebViewController.h"
 #import "TLUtilities.h"
 #import "TLViewController.h"
+#import "TLSequenceViewController.h"
 
 @interface TLAboutViewController ()
 
@@ -72,13 +73,6 @@
   // Process based on tab bar item selection
   tabBar.selectedItem = item;
   switch (item.tag) {
-    case kHomeTab:
-    {
-      // Display home view
-      [self.delegate dismissViewController];
-      [self.delegate didSelectTabItem:item.tag];
-      break;
-    }
     case kAsanasTab:
     {
       // Display asanas view
@@ -89,8 +83,7 @@
     case kSequencesTab:
     {
       // Display sequences view
-      [self.delegate dismissViewController];
-      [self.delegate didSelectTabItem:item.tag];
+      [self performSegueWithIdentifier:@"SequencesSegue" sender:nil];
       break;
     }
     case kFavoritesTab:
@@ -203,6 +196,14 @@
   if ([segue.identifier isEqualToString:@"WebViewSegue"]) {
     TLWebViewController *viewController = segue.destinationViewController;
     viewController.url = sender;
+  }
+  else if ([segue.identifier isEqualToString:@"SequencesSegue"]) {
+    UINavigationController *controller =
+    (UINavigationController *)segue.destinationViewController;
+    TLSequenceViewController *viewController = [controller viewControllers][0];
+    viewController.managedObjectContext = self.managedObjectContext;
+    viewController.managedObjectModel = self.managedObjectModel;
+    viewController.delegate = self.delegate;
   }
 }
 

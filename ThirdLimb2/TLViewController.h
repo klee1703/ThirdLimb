@@ -32,7 +32,6 @@
 #define kMenuRestorative  @"Restorative"
 #define kMenuOther        @"Other"
 
-#define kHomeTab        4
 #define kAsanasTab      0
 #define kFavoritesTab   1
 #define kSequencesTab   2

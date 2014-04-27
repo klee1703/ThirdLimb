@@ -24,9 +24,12 @@ UIWebViewDelegate, UIActionSheetDelegate, UIPopoverControllerDelegate>
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet UIButton *favoritesButton;
 @property (strong, nonatomic) UIPopoverController *notesPopoverController;
-@property(strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property(strong, nonatomic) NSSet *favoriteAsanas;
 @property(strong, nonatomic) id<TLDismissViewControllerDelegate> rootViewController;
+
+// CoreData properties
+@property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
+@property (strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 
 // Delegate for dismissing view
 @property (weak, nonatomic) id<TLDismissViewControllerDelegate> delegate;

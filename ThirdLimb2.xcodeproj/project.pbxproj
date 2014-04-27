@@ -27,6 +27,7 @@
 		79F893971908BC1A00D39A2B /* Launch_Portrait.png in Resources */ = {isa = PBXBuildFile; fileRef = 79F893961908BC1A00D39A2B /* Launch_Portrait.png */; };
 		79F8A95918FF7B3600CDDE5C /* Detail.html in Resources */ = {isa = PBXBuildFile; fileRef = 79F8A95818FF7B3600CDDE5C /* Detail.html */; };
 		79F8A95D18FF814D00CDDE5C /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 79F8A95C18FF814D00CDDE5C /* star.png */; };
+		79F9C419190B5BFF004381E8 /* TLSequenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F9C418190B5BFF004381E8 /* TLSequenceViewController.m */; };
 		79FC7C3C18E12A370014D54A /* TLUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FC7C3B18E12A370014D54A /* TLUtilities.m */; };
 		79FC7C5018E12E7A0014D54A /* Adho-Mukha-Vrkasana_thumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = 79FC7C4B18E12E7A0014D54A /* Adho-Mukha-Vrkasana_thumbnail.png */; };
 		79FC7C5118E12E7A0014D54A /* AdhoMukhaSvanasana_thumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = 79FC7C4C18E12E7A0014D54A /* AdhoMukhaSvanasana_thumbnail.png */; };
@@ -149,6 +150,8 @@
 		79F893961908BC1A00D39A2B /* Launch_Portrait.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Launch_Portrait.png; sourceTree = SOURCE_ROOT; };
 		79F8A95818FF7B3600CDDE5C /* Detail.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; name = Detail.html; path = ../../../../../../dev/apple/ThirdLimb/ThirdLimb/Detail.html; sourceTree = "<group>"; };
 		79F8A95C18FF814D00CDDE5C /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = star.png; path = ../../../../../../../Desktop/star.png; sourceTree = "<group>"; };
+		79F9C417190B5BFF004381E8 /* TLSequenceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLSequenceViewController.h; sourceTree = "<group>"; };
+		79F9C418190B5BFF004381E8 /* TLSequenceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLSequenceViewController.m; sourceTree = "<group>"; };
 		79FC7C3A18E12A370014D54A /* TLUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLUtilities.h; sourceTree = "<group>"; };
 		79FC7C3B18E12A370014D54A /* TLUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLUtilities.m; sourceTree = "<group>"; };
 		79FC7C4B18E12E7A0014D54A /* Adho-Mukha-Vrkasana_thumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Adho-Mukha-Vrkasana_thumbnail.png"; sourceTree = "<group>"; };
@@ -283,6 +286,30 @@
 				790B110218E63AC2005EA5C8 /* TLAsanaDetailViewController.m */,
 			);
 			name = "Asana Detail View";
+			sourceTree = "<group>";
+		};
+		79EBDA47190C8314009C14BF /* Sequences View */ = {
+			isa = PBXGroup;
+			children = (
+				79F9C417190B5BFF004381E8 /* TLSequenceViewController.h */,
+				79F9C418190B5BFF004381E8 /* TLSequenceViewController.m */,
+			);
+			name = "Sequences View";
+			sourceTree = "<group>";
+		};
+		79EBDA48190C834A009C14BF /* Asanas View */ = {
+			isa = PBXGroup;
+			children = (
+				79F5182E18E3CB3700EC615F /* TLAsanaThumbnailCell.h */,
+				79F5182F18E3CB3700EC615F /* TLAsanaThumbnailCell.m */,
+				79FE886018DF8C0800B55A20 /* TLViewController.h */,
+				79FE886118DF8C0800B55A20 /* TLViewController.m */,
+				79E92E5C18F2538B007D1E28 /* TLAsanasTableViewController.h */,
+				79E92E5D18F2538B007D1E28 /* TLAsanasTableViewController.m */,
+				790260E718F5AA3200A9B3A5 /* TLAsanasCategorySelectDelegate.h */,
+				79FEAB9118E7B60700864DF8 /* TLDismissViewControllerDelegate.h */,
+			);
+			name = "Asanas View";
 			sourceTree = "<group>";
 		};
 		79EE8A3318FF4DB7005BFE3E /* launch images */ = {
@@ -470,6 +497,8 @@
 		79FE885118DF8C0700B55A20 /* ThirdLimb2 */ = {
 			isa = PBXGroup;
 			children = (
+				79EBDA48190C834A009C14BF /* Asanas View */,
+				79EBDA47190C8314009C14BF /* Sequences View */,
 				79EE8A3318FF4DB7005BFE3E /* launch images */,
 				790B110818E64CC3005EA5C8 /* Favorites.png */,
 				790B110918E64CC3005EA5C8 /* Favorites@2x.png */,
@@ -486,16 +515,8 @@
 				79FE885A18DF8C0800B55A20 /* TLAppDelegate.h */,
 				79FE885B18DF8C0800B55A20 /* TLAppDelegate.m */,
 				79FE885D18DF8C0800B55A20 /* Main.storyboard */,
-				79E92E5C18F2538B007D1E28 /* TLAsanasTableViewController.h */,
-				79E92E5D18F2538B007D1E28 /* TLAsanasTableViewController.m */,
-				79FE886018DF8C0800B55A20 /* TLViewController.h */,
-				79FE886118DF8C0800B55A20 /* TLViewController.m */,
-				790260E718F5AA3200A9B3A5 /* TLAsanasCategorySelectDelegate.h */,
-				79FEAB9118E7B60700864DF8 /* TLDismissViewControllerDelegate.h */,
 				79FE886318DF8C0800B55A20 /* Images.xcassets */,
 				79FE885218DF8C0700B55A20 /* Supporting Files */,
-				79F5182E18E3CB3700EC615F /* TLAsanaThumbnailCell.h */,
-				79F5182F18E3CB3700EC615F /* TLAsanaThumbnailCell.m */,
 			);
 			path = ThirdLimb2;
 			sourceTree = "<group>";
@@ -717,6 +738,7 @@
 				79E92E5E18F2538B007D1E28 /* TLAsanasTableViewController.m in Sources */,
 				790B110618E63B37005EA5C8 /* TLNotesViewController.m in Sources */,
 				79F5183018E3CB3700EC615F /* TLAsanaThumbnailCell.m in Sources */,
+				79F9C419190B5BFF004381E8 /* TLSequenceViewController.m in Sources */,
 				79FE885C18DF8C0800B55A20 /* TLAppDelegate.m in Sources */,
 				79FE885818DF8C0800B55A20 /* main.m in Sources */,
 			);

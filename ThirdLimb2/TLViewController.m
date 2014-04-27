@@ -15,6 +15,7 @@
 #import "TLUtilities.h"
 #import "TLAboutViewController.h"
 #import "TLAsanasTableViewController.h"
+#import "TLSequenceViewController.h"
 
 @interface TLViewController ()
 
@@ -116,14 +117,6 @@
   
   // Process selection
   switch (item) {
-    case kHomeTab:
-    {
-      // Current tab, just break
-      self.titleLabel.text = kHomeTitle;
-      self.currentAsanas = self.asanas;
-      [self.collectionView reloadData];
-      break;
-    }
     case kAsanasTab:
     {
       // Configure types button
@@ -134,27 +127,12 @@
       self.titleLabel.text = kAsanasTitle;
       self.currentAsanas = self.asanas;
       [self.collectionView reloadData];
-      /*
-      if (self.asanasPopoverController == nil) {
-        [self performSegueWithIdentifier:@"AsanasSegue" sender:nil];
-      }
-      else {
-        [_asanasPopoverController dismissPopoverAnimated:YES];
-        self.asanasPopoverController = nil;
-      }
-       */
       break;
     }
     case kSequencesTab:
     {
-      // Configure types button
-      self.asanaTypes.enabled = NO;
-      self.asanaTypes.hidden = YES;
-      
-      // Display sequences view
-      self.titleLabel.text = kSequencesTitle;
-      self.currentAsanas = self.asanas;
-      [self.collectionView reloadData];
+      // Display Sequences view
+      [self performSegueWithIdentifier:@"SequencesSegue" sender:nil];
       break;
     }
     case kFavoritesTab:
@@ -182,10 +160,6 @@
     }
     case kAboutTab:
     {
-      // Configure types button
-      self.asanaTypes.enabled = NO;
-      self.asanaTypes.hidden = YES;
-      
       // Display About view
       [self performSegueWithIdentifier:@"AboutSegue" sender:nil];
       break;
@@ -368,6 +342,7 @@ referenceSizeForFooterInSection:(NSInteger)section
     viewController.asanaName = [sender name];
     viewController.translation = [sender translation];
     viewController.managedObjectContext = self.managedObjectContext;
+    viewController.managedObjectModel = self.managedObjectModel;
     viewController.favoriteAsanas = [[self getFavorites] asanas];
     //    viewController.favoriteAsanas = [self.favorite asanas];
     viewController.delegate = self;
@@ -376,6 +351,14 @@ referenceSizeForFooterInSection:(NSInteger)section
     UINavigationController *controller =
     (UINavigationController *)segue.destinationViewController;
     TLAboutViewController *viewController = [controller viewControllers][0];
+    viewController.managedObjectContext = self.managedObjectContext;
+    viewController.managedObjectModel = self.managedObjectModel;
+    viewController.delegate = self;
+  }
+  else if ([segue.identifier isEqualToString:@"SequencesSegue"]) {
+    UINavigationController *controller =
+    (UINavigationController *)segue.destinationViewController;
+    TLSequenceViewController *viewController = [controller viewControllers][0];
     viewController.managedObjectContext = self.managedObjectContext;
     viewController.managedObjectModel = self.managedObjectModel;
     viewController.delegate = self;

@@ -161,8 +161,9 @@
                         <outlet property="tabBar" destination="Ccn-k4-awa" id="fTU-Xf-WPt"/>
                         <outlet property="titleLabel" destination="aPp-1x-x4k" id="Lqc-kA-GlP"/>
                         <outlet property="viewLabel" destination="qYx-SU-64i" id="Neh-xD-qvu"/>
-                        <segue destination="App-zL-CzH" kind="modal" identifier="AboutSegue" id="u4o-7z-y4N"/>
+                        <segue destination="App-zL-CzH" kind="modal" identifier="AboutSegue" animates="NO" id="u4o-7z-y4N"/>
                         <segue destination="yT4-vt-0td" kind="modal" identifier="AsanaDetailSegue" id="yuQ-Rf-dhl"/>
+                        <segue destination="rk7-4Q-fdE" kind="modal" identifier="SequencesSegue" animates="NO" id="vO7-3G-kTm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -348,6 +349,52 @@
             </objects>
             <point key="canvasLocation" x="385" y="-1541"/>
         </scene>
+        <!--Sequence View Controller - Sequences-->
+        <scene sceneID="ver-Gm-yFl">
+            <objects>
+                <viewController storyboardIdentifier="SequenceView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="bJT-QC-Jsq" customClass="TLSequenceViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NMd-y0-JRQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="WeR-Uy-I3i"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9AT-5e-uyV">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tabBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ocd-hd-zZZ">
+                                <rect key="frame" x="0.0" y="975" width="768" height="49"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem title="Asanas" image="Asanas.png" id="TnD-7h-JHM"/>
+                                    <tabBarItem tag="1" systemItem="favorites" id="aBk-LT-taq"/>
+                                    <tabBarItem tag="2" title="Sequences" image="Sequences.png" id="9hf-nc-RFJ"/>
+                                    <tabBarItem tag="3" title="About" image="About.png" id="3bd-eL-8qw"/>
+                                </items>
+                                <color key="barTintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="delegate" destination="bJT-QC-Jsq" id="8fn-BP-zIT"/>
+                                </connections>
+                            </tabBar>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="WeR-Uy-I3i" firstAttribute="top" secondItem="Ocd-hd-zZZ" secondAttribute="bottom" id="aGr-WG-qcC"/>
+                            <constraint firstAttribute="trailing" secondItem="Ocd-hd-zZZ" secondAttribute="trailing" id="abh-2x-SEp"/>
+                            <constraint firstItem="Ocd-hd-zZZ" firstAttribute="leading" secondItem="9AT-5e-uyV" secondAttribute="leading" id="zvq-1w-RKj"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Sequences" id="Wyx-jh-jUg">
+                        <barButtonItem key="leftBarButtonItem" image="Sequences.png" id="MIL-5z-6Vu"/>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="App-zL-CzH" kind="modal" identifier="AboutSegue" animates="NO" id="iOv-ew-LcM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Bc-nZ-OrQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2435" y="-1541"/>
+        </scene>
         <!--About View Controller - About-->
         <scene sceneID="zzj-H9-vXU">
             <objects>
@@ -397,6 +444,7 @@
                         <outlet property="tabBar" destination="xBA-Cc-muk" id="iK9-eh-tYO"/>
                         <outlet property="webView" destination="ZKY-TG-WD7" id="kym-Cm-2Yh"/>
                         <segue destination="BYZ-38-t0r" kind="modal" identifier="HomeSegue" id="u3C-fS-1De"/>
+                        <segue destination="rk7-4Q-fdE" kind="modal" identifier="SequencesSegue" animates="NO" id="5a7-ay-Y9Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Ow-eU-Yel" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -541,6 +589,7 @@
                         <outlet property="titleLabel" destination="ExO-aK-tSI" id="mzC-YC-3aq"/>
                         <outlet property="viewLabel" destination="qVd-lX-5iU" id="Hcl-mo-sBr"/>
                         <segue destination="App-zL-CzH" kind="modal" identifier="AboutSegue" id="bKw-SK-oCw"/>
+                        <segue destination="rk7-4Q-fdE" kind="modal" identifier="SequencesSegue" animates="NO" id="kgi-3A-1It"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5bY-y4-Bx3" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -627,6 +676,24 @@
             </objects>
             <point key="canvasLocation" x="1191" y="925"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="eeG-K6-7Mh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rk7-4Q-fdE" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="f4Y-qM-dXF">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="bJT-QC-Jsq" kind="relationship" relationship="rootViewController" id="FQ3-hh-aOo"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="leq-GI-DWW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1431" y="-1541"/>
+        </scene>
     </scenes>
     <resources>
         <image name="About.png" width="29" height="29"/>
@@ -641,6 +708,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="u4o-7z-y4N"/>
+        <segue reference="bKw-SK-oCw"/>
+        <segue reference="kgi-3A-1It"/>
     </inferredMetricsTieBreakers>
 </document>

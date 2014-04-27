@@ -12,6 +12,7 @@
 #import "TLUtilities.h"
 #import "TLViewController.h"
 #import "TLAboutViewController.h"
+#import "TLSequenceViewController.h"
 
 @interface TLAsanaDetailViewController ()
 
@@ -75,11 +76,6 @@
 - (void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item {
   // Process based on tab bar item selection
   switch (item.tag) {
-    case kHomeTab:
-      // Display home view
-      [self.delegate dismissViewController];
-      [self.delegate didSelectTabItem:item.tag];
-      break;
     case kAsanasTab:
       // Display asanas view
       [self.delegate dismissViewController];
@@ -87,8 +83,7 @@
       break;
     case kSequencesTab:
       // Display sequences view
-      [self.delegate didSelectTabItem:item.tag];
-      [self.delegate dismissViewController];
+      [self performSegueWithIdentifier:@"SequencesSegue" sender:nil];
       break;
     case kFavoritesTab:
       // Display favorites view
@@ -142,8 +137,16 @@
     (UINavigationController *)segue.destinationViewController;
     TLAboutViewController *viewController = [controller viewControllers][0];
     viewController.managedObjectContext = self.managedObjectContext;
-    //    viewController.managedObjectModel = self.managedObjectModel;
+    viewController.managedObjectModel = self.managedObjectModel;
     viewController.delegate = self.rootViewController;
+  }
+  else if ([segue.identifier isEqualToString:@"SequencesSegue"]) {
+    UINavigationController *controller =
+    (UINavigationController *)segue.destinationViewController;
+    TLSequenceViewController *viewController = [controller viewControllers][0];
+    viewController.managedObjectContext = self.managedObjectContext;
+    viewController.managedObjectModel = self.managedObjectModel;
+    viewController.delegate = self.delegate;
   }
 }
 
