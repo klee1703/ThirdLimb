@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Sequence.h"
 
 @interface TLSequencesAnimationViewController : UIViewController
+
+@property(nonatomic, strong) Sequence *sequence;
+@property(nonatomic, strong) NSDictionary *sequencePlist;
 
 @end

@@ -204,6 +204,8 @@
     viewController.managedObjectContext = self.managedObjectContext;
     viewController.managedObjectModel = self.managedObjectModel;
     viewController.delegate = self.delegate;
+    viewController.sequences = self.sequences;
+    viewController.sequencesPlist = self.sequencesPlist;
   }
 }
 

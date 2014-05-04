@@ -11,8 +11,15 @@
 #import "TLViewController.h"
 #import "TLAboutViewController.h"
 #import "TLSequencesAnimationViewController.h"
+#import "TLSequencesTableViewController.h"
+#import "Sequence.h"
 
 @interface TLSequenceViewController ()
+@property (strong, nonatomic) UIPopoverController *animationPopoverController;
+@property (strong, nonatomic) UIPopoverController *sequencesPopoverController;
+@property(strong, nonatomic) Sequence *currentSequence;
+@property(strong, nonatomic) NSDictionary *currentSequencePlist;
+@property(strong, nonatomic) NSString *indexFileURL;
 
 @end
 
@@ -30,9 +37,12 @@
 - (void)viewDidLoad
 {
   [super viewDidLoad];
-  // Do any additional setup after loading the view.
   
 	// Do any additional setup after loading the view.
+  NSArray *items = self.tabBar.items;
+  UITabBarItem *barItem = (UITabBarItem *)items[kSequencesTab];
+  [self.tabBar setSelectedItem:barItem];
+
   UINavigationController *navController =
   (UINavigationController *)self.navigationController;
   
@@ -40,6 +50,17 @@
   [navController.navigationBar setTitleTextAttributes:@{NSFontAttributeName:[TLUtilities navigationFont]}];
   [navController.navigationBar setBackgroundImage:[TLUtilities backgroundImage]
                                     forBarMetrics:UIBarMetricsDefault];
+
+  // Disable animate button
+  self.animateButton.enabled = NO;
+  self.animateButton.hidden = YES;
+  
+  // Load web view
+  NSBundle *bundle = [NSBundle mainBundle];
+  NSURL *indexFileURL = [bundle URLForResource:kSequenceDocument withExtension:nil];
+  [self.webView setDelegate:self];
+  [self.webView loadRequest:[NSURLRequest requestWithURL:indexFileURL]];
+  [self.webView setScalesPageToFit:YES];
 }
 
 - (void)didReceiveMemoryWarning
@@ -48,6 +69,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+/*
+- (NSArray *)sequences {
+  // Load Sequence entities from persistent store
+  NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+  NSEntityDescription *entity = [NSEntityDescription entityForName:@"Sequence"
+                                            inManagedObjectContext:self.managedObjectContext];
+  [fetchRequest setEntity:entity];
+  return [self.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+}
+*/
 
 #pragma mark -
 #pragma mark UITabBarDelegate methods
@@ -93,8 +124,20 @@
     viewController.delegate = self.delegate;
   }
   else if ([segue.identifier isEqualToString:@"AnimationSegue"]) {
-    //    TLSequencesAnimationViewController *controller =
-    //(TLSequencesAnimationViewController *)segue.destinationViewController;
+    TLSequencesAnimationViewController *controller =
+    (TLSequencesAnimationViewController *)segue.destinationViewController;
+    controller.sequence = self.currentSequence;
+    controller.sequencePlist = self.currentSequencePlist;
+    
+    // Retrieve popover controller for programmatic dismissal
+    UIStoryboardPopoverSegue *popoverSegue = (UIStoryboardPopoverSegue *)segue;
+    self.animationPopoverController = popoverSegue.popoverController;
+  }
+  else if ([segue.identifier isEqualToString:@"SequencesTableSegue"]) {
+    TLSequencesTableViewController *controller =
+    (TLSequencesTableViewController *)segue.destinationViewController;
+    controller.sequences = self.sequences;
+    controller.delegate = self;
     
     // Retrieve popover controller for programmatic dismissal
     UIStoryboardPopoverSegue *popoverSegue = (UIStoryboardPopoverSegue *)segue;
@@ -104,9 +147,46 @@
 
 
 - (IBAction)animateSequence:(id)sender {
+  if (self.animationPopoverController != nil){
+    [self.animationPopoverController dismissPopoverAnimated:YES];
+    self.animationPopoverController = nil;
+  }
+}
+
+#pragma mark - 
+#pragma mark SequenceSelectDelegate methods
+- (void)didSelectSequenceAtRow:(NSUInteger)row {
+  // Set current sequence
+  self.currentSequence = self.sequences[row];
+  self.currentSequencePlist = self.sequencesPlist[row];
+  
+  // Display sequence page in web view
+  [self loadSequenceView:self.currentSequence.document];
+
+  // Enable/disable button display
+  if (self.currentSequence.asanas.count > 0) {
+    self.animateButton.enabled = YES;
+    self.animateButton.hidden = NO;
+  }
+  else {
+    self.animateButton.enabled = NO;
+    self.animateButton.hidden = YES;
+  }
+  
   if (self.sequencesPopoverController != nil){
     [self.sequencesPopoverController dismissPopoverAnimated:YES];
     self.sequencesPopoverController = nil;
   }
+  
+}
+
+-(void)loadSequenceView:(NSString *)document {
+  NSBundle *bundle = [NSBundle mainBundle];
+  NSURL *indexFileURL = [bundle URLForResource:document withExtension:nil];
+  if (indexFileURL == nil) {
+    indexFileURL = [bundle URLForResource:kSequenceDocument withExtension:nil];
+  }
+  [self.webView loadRequest:[NSURLRequest requestWithURL:indexFileURL]];
+  [self.webView setScalesPageToFit:YES];
 }
 @end

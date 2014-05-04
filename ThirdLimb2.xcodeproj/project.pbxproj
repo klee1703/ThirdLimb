@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7903449C1913395C0095B377 /* Sequences.html in Resources */ = {isa = PBXBuildFile; fileRef = 7903449B1913395C0095B377 /* Sequences.html */; };
+		7903449F19134C000095B377 /* Surya-NamaskaraA.html in Resources */ = {isa = PBXBuildFile; fileRef = 7903449E19134C000095B377 /* Surya-NamaskaraA.html */; };
+		790344A119134C120095B377 /* Surya-NamaskaraB.html in Resources */ = {isa = PBXBuildFile; fileRef = 790344A019134C120095B377 /* Surya-NamaskaraB.html */; };
 		79083D6018F3A62E0005D874 /* icon_29.png in Resources */ = {isa = PBXBuildFile; fileRef = 79083D5A18F3A62E0005D874 /* icon_29.png */; };
 		79083D6118F3A62E0005D874 /* icon_29@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79083D5B18F3A62E0005D874 /* icon_29@2x.png */; };
 		79083D6218F3A62E0005D874 /* icon_40.png in Resources */ = {isa = PBXBuildFile; fileRef = 79083D5C18F3A62E0005D874 /* icon_40.png */; };
@@ -17,13 +20,21 @@
 		790B110618E63B37005EA5C8 /* TLNotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 790B110518E63B37005EA5C8 /* TLNotesViewController.m */; };
 		790B110A18E64CC3005EA5C8 /* Favorites.png in Resources */ = {isa = PBXBuildFile; fileRef = 790B110818E64CC3005EA5C8 /* Favorites.png */; };
 		790B110B18E64CC3005EA5C8 /* Favorites@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 790B110918E64CC3005EA5C8 /* Favorites@2x.png */; };
+		79235208190DC18600FCE14E /* Cover_Transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = 79235207190DC18600FCE14E /* Cover_Transparent.png */; };
+		7923520A190DC42900FCE14E /* Menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 79235209190DC42900FCE14E /* Menu.png */; };
+		7923520C190DC65900FCE14E /* Sequences.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7923520B190DC65900FCE14E /* Sequences.plist */; };
+		79235210190DE63800FCE14E /* Kumbhakasana_thumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = 7923520D190DE63800FCE14E /* Kumbhakasana_thumbnail.png */; };
+		79235211190DE63800FCE14E /* Ardha-Uttanasana_thumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = 7923520E190DE63800FCE14E /* Ardha-Uttanasana_thumbnail.png */; };
+		79235212190DE63800FCE14E /* Tadasana-Urdhva-Hastasana_thumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = 7923520F190DE63800FCE14E /* Tadasana-Urdhva-Hastasana_thumbnail.png */; };
 		79E92E5E18F2538B007D1E28 /* TLAsanasTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79E92E5D18F2538B007D1E28 /* TLAsanasTableViewController.m */; };
+		79EB9C8A1910B34700A86C20 /* Sequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EB9C891910B34700A86C20 /* Sequence.m */; };
 		79EBDA4B190C878A009C14BF /* TLSequencesAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EBDA4A190C878A009C14BF /* TLSequencesAnimationViewController.m */; };
 		79EBDA4E190C880A009C14BF /* TLSequencesAnimationScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 79EBDA4D190C880A009C14BF /* TLSequencesAnimationScene.m */; };
 		79EBDA50190C9532009C14BF /* SpriteKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79EBDA4F190C9532009C14BF /* SpriteKit.framework */; };
 		79EE8A2F18FF4DAE005BFE3E /* Launch_Landscape.png in Resources */ = {isa = PBXBuildFile; fileRef = 79EE8A2B18FF4DAE005BFE3E /* Launch_Landscape.png */; };
 		79EE8A3018FF4DAE005BFE3E /* Launch_Landscape@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79EE8A2C18FF4DAE005BFE3E /* Launch_Landscape@2x.png */; };
 		79EE8A3218FF4DAE005BFE3E /* Launch_Portrait@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79EE8A2E18FF4DAE005BFE3E /* Launch_Portrait@2x.png */; };
+		79F3458A1911FC530042626C /* TLSequencesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F345891911FC530042626C /* TLSequencesTableViewController.m */; };
 		79F5183018E3CB3700EC615F /* TLAsanaThumbnailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F5182F18E3CB3700EC615F /* TLAsanaThumbnailCell.m */; };
 		79F5183318E3D17100EC615F /* Close.png in Resources */ = {isa = PBXBuildFile; fileRef = 79F5183118E3D17100EC615F /* Close.png */; };
 		79F5183418E3D17100EC615F /* Close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 79F5183218E3D17100EC615F /* Close@2x.png */; };
@@ -33,7 +44,7 @@
 		79F9C419190B5BFF004381E8 /* TLSequenceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 79F9C418190B5BFF004381E8 /* TLSequenceViewController.m */; };
 		79FC7C3C18E12A370014D54A /* TLUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FC7C3B18E12A370014D54A /* TLUtilities.m */; };
 		79FC7C5018E12E7A0014D54A /* Adho-Mukha-Vrkasana_thumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = 79FC7C4B18E12E7A0014D54A /* Adho-Mukha-Vrkasana_thumbnail.png */; };
-		79FC7C5118E12E7A0014D54A /* AdhoMukhaSvanasana_thumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = 79FC7C4C18E12E7A0014D54A /* AdhoMukhaSvanasana_thumbnail.png */; };
+		79FC7C5118E12E7A0014D54A /* Adho-Mukha-Svanasana_thumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = 79FC7C4C18E12E7A0014D54A /* Adho-Mukha-Svanasana_thumbnail.png */; };
 		79FC7C5218E12E7A0014D54A /* Apanasana1_thumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = 79FC7C4D18E12E7A0014D54A /* Apanasana1_thumbnail.png */; };
 		79FC7C5318E12E7A0014D54A /* Ardha-Bhekasana_thumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = 79FC7C4E18E12E7A0014D54A /* Ardha-Bhekasana_thumbnail.png */; };
 		79FC7C5418E12E7A0014D54A /* Ardha-Matsyendrasana1_thumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = 79FC7C4F18E12E7A0014D54A /* Ardha-Matsyendrasana1_thumbnail.png */; };
@@ -84,7 +95,6 @@
 		79FC7CB218E12F630014D54A /* About.html in Resources */ = {isa = PBXBuildFile; fileRef = 79FC7CB018E12F630014D54A /* About.html */; };
 		79FC7CB618E132C50014D54A /* ThirdLimb.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 79FC7CB418E132C50014D54A /* ThirdLimb.xcdatamodeld */; };
 		79FC7CBA18E1330B0014D54A /* AsanaType.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FC7CB918E1330B0014D54A /* AsanaType.m */; };
-		79FC7CBD18E1330B0014D54A /* Sequence.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FC7CBC18E1330B0014D54A /* Sequence.m */; };
 		79FC7CC018E1330B0014D54A /* Favorite.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FC7CBF18E1330B0014D54A /* Favorite.m */; };
 		79FC7CC318E1330B0014D54A /* Asana.m in Sources */ = {isa = PBXBuildFile; fileRef = 79FC7CC218E1330B0014D54A /* Asana.m */; };
 		79FC7CC818E136190014D54A /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 79FC7CC718E136190014D54A /* CoreData.framework */; };
@@ -129,6 +139,10 @@
 
 /* Begin PBXFileReference section */
 		790260E718F5AA3200A9B3A5 /* TLAsanasCategorySelectDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TLAsanasCategorySelectDelegate.h; sourceTree = "<group>"; };
+		7903449B1913395C0095B377 /* Sequences.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = Sequences.html; sourceTree = "<group>"; };
+		7903449D191345940095B377 /* TLSequenceSelectDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TLSequenceSelectDelegate.h; sourceTree = "<group>"; };
+		7903449E19134C000095B377 /* Surya-NamaskaraA.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "Surya-NamaskaraA.html"; sourceTree = "<group>"; };
+		790344A019134C120095B377 /* Surya-NamaskaraB.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = "Surya-NamaskaraB.html"; sourceTree = "<group>"; };
 		79083D5A18F3A62E0005D874 /* icon_29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_29.png; sourceTree = SOURCE_ROOT; };
 		79083D5B18F3A62E0005D874 /* icon_29@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_29@2x.png"; sourceTree = SOURCE_ROOT; };
 		79083D5C18F3A62E0005D874 /* icon_40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_40.png; sourceTree = SOURCE_ROOT; };
@@ -141,8 +155,16 @@
 		790B110518E63B37005EA5C8 /* TLNotesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLNotesViewController.m; sourceTree = "<group>"; };
 		790B110818E64CC3005EA5C8 /* Favorites.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Favorites.png; path = ../../../../../../dev/apple/ThirdLimb/ThirdLimb/Favorites.png; sourceTree = "<group>"; };
 		790B110918E64CC3005EA5C8 /* Favorites@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Favorites@2x.png"; path = "../../../../../../dev/apple/ThirdLimb/ThirdLimb/Favorites@2x.png"; sourceTree = "<group>"; };
+		79235207190DC18600FCE14E /* Cover_Transparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Cover_Transparent.png; path = resources/Cover_Transparent.png; sourceTree = SOURCE_ROOT; };
+		79235209190DC42900FCE14E /* Menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Menu.png; path = resources/Menu.png; sourceTree = SOURCE_ROOT; };
+		7923520B190DC65900FCE14E /* Sequences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Sequences.plist; sourceTree = "<group>"; };
+		7923520D190DE63800FCE14E /* Kumbhakasana_thumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Kumbhakasana_thumbnail.png; sourceTree = "<group>"; };
+		7923520E190DE63800FCE14E /* Ardha-Uttanasana_thumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ardha-Uttanasana_thumbnail.png"; sourceTree = "<group>"; };
+		7923520F190DE63800FCE14E /* Tadasana-Urdhva-Hastasana_thumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tadasana-Urdhva-Hastasana_thumbnail.png"; sourceTree = "<group>"; };
 		79E92E5C18F2538B007D1E28 /* TLAsanasTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLAsanasTableViewController.h; sourceTree = "<group>"; };
 		79E92E5D18F2538B007D1E28 /* TLAsanasTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLAsanasTableViewController.m; sourceTree = "<group>"; };
+		79EB9C881910B34700A86C20 /* Sequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sequence.h; sourceTree = "<group>"; };
+		79EB9C891910B34700A86C20 /* Sequence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sequence.m; sourceTree = "<group>"; };
 		79EBDA49190C878A009C14BF /* TLSequencesAnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLSequencesAnimationViewController.h; sourceTree = "<group>"; };
 		79EBDA4A190C878A009C14BF /* TLSequencesAnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLSequencesAnimationViewController.m; sourceTree = "<group>"; };
 		79EBDA4C190C880A009C14BF /* TLSequencesAnimationScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLSequencesAnimationScene.h; sourceTree = "<group>"; };
@@ -151,6 +173,8 @@
 		79EE8A2B18FF4DAE005BFE3E /* Launch_Landscape.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Launch_Landscape.png; path = resources/Launch_Landscape.png; sourceTree = SOURCE_ROOT; };
 		79EE8A2C18FF4DAE005BFE3E /* Launch_Landscape@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Launch_Landscape@2x.png"; path = "resources/Launch_Landscape@2x.png"; sourceTree = SOURCE_ROOT; };
 		79EE8A2E18FF4DAE005BFE3E /* Launch_Portrait@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Launch_Portrait@2x.png"; path = "resources/Launch_Portrait@2x.png"; sourceTree = SOURCE_ROOT; };
+		79F345881911FC530042626C /* TLSequencesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLSequencesTableViewController.h; sourceTree = "<group>"; };
+		79F345891911FC530042626C /* TLSequencesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLSequencesTableViewController.m; sourceTree = "<group>"; };
 		79F5182E18E3CB3700EC615F /* TLAsanaThumbnailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLAsanaThumbnailCell.h; sourceTree = "<group>"; };
 		79F5182F18E3CB3700EC615F /* TLAsanaThumbnailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLAsanaThumbnailCell.m; sourceTree = "<group>"; };
 		79F5183118E3D17100EC615F /* Close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Close.png; path = ../../../../../../dev/apple/ThirdLimb/ThirdLimb/Close.png; sourceTree = "<group>"; };
@@ -163,7 +187,7 @@
 		79FC7C3A18E12A370014D54A /* TLUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLUtilities.h; sourceTree = "<group>"; };
 		79FC7C3B18E12A370014D54A /* TLUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLUtilities.m; sourceTree = "<group>"; };
 		79FC7C4B18E12E7A0014D54A /* Adho-Mukha-Vrkasana_thumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Adho-Mukha-Vrkasana_thumbnail.png"; sourceTree = "<group>"; };
-		79FC7C4C18E12E7A0014D54A /* AdhoMukhaSvanasana_thumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AdhoMukhaSvanasana_thumbnail.png; sourceTree = "<group>"; };
+		79FC7C4C18E12E7A0014D54A /* Adho-Mukha-Svanasana_thumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Adho-Mukha-Svanasana_thumbnail.png"; sourceTree = "<group>"; };
 		79FC7C4D18E12E7A0014D54A /* Apanasana1_thumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Apanasana1_thumbnail.png; sourceTree = "<group>"; };
 		79FC7C4E18E12E7A0014D54A /* Ardha-Bhekasana_thumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ardha-Bhekasana_thumbnail.png"; sourceTree = "<group>"; };
 		79FC7C4F18E12E7A0014D54A /* Ardha-Matsyendrasana1_thumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Ardha-Matsyendrasana1_thumbnail.png"; sourceTree = "<group>"; };
@@ -217,8 +241,6 @@
 		79FC7CB518E132C50014D54A /* ThirdLimb.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = ThirdLimb.xcdatamodel; sourceTree = "<group>"; };
 		79FC7CB818E1330B0014D54A /* AsanaType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AsanaType.h; sourceTree = "<group>"; };
 		79FC7CB918E1330B0014D54A /* AsanaType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AsanaType.m; sourceTree = "<group>"; };
-		79FC7CBB18E1330B0014D54A /* Sequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sequence.h; sourceTree = "<group>"; };
-		79FC7CBC18E1330B0014D54A /* Sequence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sequence.m; sourceTree = "<group>"; };
 		79FC7CBE18E1330B0014D54A /* Favorite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Favorite.h; sourceTree = "<group>"; };
 		79FC7CBF18E1330B0014D54A /* Favorite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Favorite.m; sourceTree = "<group>"; };
 		79FC7CC118E1330B0014D54A /* Asana.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Asana.h; sourceTree = "<group>"; };
@@ -306,6 +328,12 @@
 				79F9C418190B5BFF004381E8 /* TLSequenceViewController.m */,
 				79EBDA4C190C880A009C14BF /* TLSequencesAnimationScene.h */,
 				79EBDA4D190C880A009C14BF /* TLSequencesAnimationScene.m */,
+				79F345881911FC530042626C /* TLSequencesTableViewController.h */,
+				79F345891911FC530042626C /* TLSequencesTableViewController.m */,
+				7903449B1913395C0095B377 /* Sequences.html */,
+				7903449D191345940095B377 /* TLSequenceSelectDelegate.h */,
+				7903449E19134C000095B377 /* Surya-NamaskaraA.html */,
+				790344A019134C120095B377 /* Surya-NamaskaraB.html */,
 			);
 			name = "Sequences View";
 			sourceTree = "<group>";
@@ -373,6 +401,8 @@
 		79FC7C3D18E12DD70014D54A /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				790B110818E64CC3005EA5C8 /* Favorites.png */,
+				790B110918E64CC3005EA5C8 /* Favorites@2x.png */,
 				79F8A95C18FF814D00CDDE5C /* star.png */,
 				79083D5A18F3A62E0005D874 /* icon_29.png */,
 				79083D5B18F3A62E0005D874 /* icon_29@2x.png */,
@@ -389,6 +419,9 @@
 		79FC7C4A18E12E300014D54A /* thumbnails */ = {
 			isa = PBXGroup;
 			children = (
+				7923520D190DE63800FCE14E /* Kumbhakasana_thumbnail.png */,
+				7923520E190DE63800FCE14E /* Ardha-Uttanasana_thumbnail.png */,
+				7923520F190DE63800FCE14E /* Tadasana-Urdhva-Hastasana_thumbnail.png */,
 				79FC7C6B18E12EEF0014D54A /* Jathara-Parivartanasana1_thumbnail.png */,
 				79FC7C6C18E12EEF0014D54A /* Marichyasana3_thumbnail.png */,
 				79FC7C6D18E12EEF0014D54A /* Marjariasana_thumbnail.png */,
@@ -432,7 +465,7 @@
 				79FC7C5818E12E8B0014D54A /* Balasana1_thumbnail.png */,
 				79FC7C5918E12E8B0014D54A /* Banarasana1_thumbnail.png */,
 				79FC7C4B18E12E7A0014D54A /* Adho-Mukha-Vrkasana_thumbnail.png */,
-				79FC7C4C18E12E7A0014D54A /* AdhoMukhaSvanasana_thumbnail.png */,
+				79FC7C4C18E12E7A0014D54A /* Adho-Mukha-Svanasana_thumbnail.png */,
 				79FC7C4D18E12E7A0014D54A /* Apanasana1_thumbnail.png */,
 				79FC7C4E18E12E7A0014D54A /* Ardha-Bhekasana_thumbnail.png */,
 				79FC7C4F18E12E7A0014D54A /* Ardha-Matsyendrasana1_thumbnail.png */,
@@ -455,12 +488,13 @@
 		79FC7CB718E132E20014D54A /* model */ = {
 			isa = PBXGroup;
 			children = (
+				79FC7CB418E132C50014D54A /* ThirdLimb.xcdatamodeld */,
+				79EB9C881910B34700A86C20 /* Sequence.h */,
+				79EB9C891910B34700A86C20 /* Sequence.m */,
 				79FC7CC118E1330B0014D54A /* Asana.h */,
 				79FC7CC218E1330B0014D54A /* Asana.m */,
 				79FC7CBE18E1330B0014D54A /* Favorite.h */,
 				79FC7CBF18E1330B0014D54A /* Favorite.m */,
-				79FC7CBB18E1330B0014D54A /* Sequence.h */,
-				79FC7CBC18E1330B0014D54A /* Sequence.m */,
 				79FC7CB818E1330B0014D54A /* AsanaType.h */,
 				79FC7CB918E1330B0014D54A /* AsanaType.m */,
 			);
@@ -472,6 +506,7 @@
 			children = (
 				79FC7CCA18E13CA70014D54A /* Asanas.plist */,
 				79FC7CCB18E13CA70014D54A /* Favorites.plist */,
+				7923520B190DC65900FCE14E /* Sequences.plist */,
 			);
 			name = "property lists";
 			sourceTree = "<group>";
@@ -511,15 +546,14 @@
 		79FE885118DF8C0700B55A20 /* ThirdLimb2 */ = {
 			isa = PBXGroup;
 			children = (
+				79235209190DC42900FCE14E /* Menu.png */,
+				79235207190DC18600FCE14E /* Cover_Transparent.png */,
 				79EBDA48190C834A009C14BF /* Asanas View */,
 				79EBDA47190C8314009C14BF /* Sequences View */,
 				79EE8A3318FF4DB7005BFE3E /* launch images */,
-				790B110818E64CC3005EA5C8 /* Favorites.png */,
-				790B110918E64CC3005EA5C8 /* Favorites@2x.png */,
 				790B110718E63B41005EA5C8 /* Asana Detail View */,
 				79FC7CC918E13C8A0014D54A /* property lists */,
 				79FC7CB718E132E20014D54A /* model */,
-				79FC7CB418E132C50014D54A /* ThirdLimb.xcdatamodeld */,
 				79FC7CA918E12F1F0014D54A /* About View */,
 				79FC7C4A18E12E300014D54A /* thumbnails */,
 				79FC7C3D18E12DD70014D54A /* icons */,
@@ -642,8 +676,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				79FC7CB218E12F630014D54A /* About.html in Resources */,
+				7903449F19134C000095B377 /* Surya-NamaskaraA.html in Resources */,
 				79FC7C8D18E12EEF0014D54A /* Matsyasana_thumbnail.png in Resources */,
 				79FE88AA18DFC5BB00B55A20 /* Sequences.png in Resources */,
+				79235210190DE63800FCE14E /* Kumbhakasana_thumbnail.png in Resources */,
 				79FC7CA418E12EEF0014D54A /* Viparita-Karani_thumbnail.png in Resources */,
 				79FC7C9318E12EEF0014D54A /* Salamba-Sirsasana1_thumbnail.png in Resources */,
 				790B110A18E64CC3005EA5C8 /* Favorites.png in Resources */,
@@ -657,10 +693,12 @@
 				79FE885618DF8C0800B55A20 /* InfoPlist.strings in Resources */,
 				79FC7C8F18E12EEF0014D54A /* Padangusthasana_thumbnail.png in Resources */,
 				79FC7C8C18E12EEF0014D54A /* Marjariasana_thumbnail.png in Resources */,
+				7903449C1913395C0095B377 /* Sequences.html in Resources */,
 				79FE88A518DFC5BB00B55A20 /* BackgroundBeton.jpg in Resources */,
 				79F8A95918FF7B3600CDDE5C /* Detail.html in Resources */,
 				79F893971908BC1A00D39A2B /* Launch_Portrait.png in Resources */,
 				79FC7CA718E12EEF0014D54A /* Virabhadrasana3_thumbnail.png in Resources */,
+				790344A119134C120095B377 /* Surya-NamaskaraB.html in Resources */,
 				79FE885F18DF8C0800B55A20 /* Main.storyboard in Resources */,
 				79FC7C9718E12EEF0014D54A /* Sirsasana2_thumbnail.png in Resources */,
 				79F8A95D18FF814D00CDDE5C /* star.png in Resources */,
@@ -668,6 +706,7 @@
 				79FC7C9018E12EEF0014D54A /* Paripurna-Navasana_thumbnail.png in Resources */,
 				79FC7C9418E12EEF0014D54A /* Sarvangasana_thumbnail.png in Resources */,
 				79FC7C5C18E12E8B0014D54A /* Bakasana_thumbnail.png in Resources */,
+				7923520C190DC65900FCE14E /* Sequences.plist in Resources */,
 				79FC7C5318E12E7A0014D54A /* Ardha-Bhekasana_thumbnail.png in Resources */,
 				79FE88A818DFC5BB00B55A20 /* Home.png in Resources */,
 				79FC7C6418E12E9A0014D54A /* Bhekasana_thumbnail.png in Resources */,
@@ -679,6 +718,7 @@
 				79FC7C9C18E12EEF0014D54A /* Trikonasana_thumbnail.png in Resources */,
 				79FC7CCC18E13CA70014D54A /* Asanas.plist in Resources */,
 				79FC7C5E18E12E8B0014D54A /* Banarasana1_thumbnail.png in Resources */,
+				79235208190DC18600FCE14E /* Cover_Transparent.png in Resources */,
 				79F5183318E3D17100EC615F /* Close.png in Resources */,
 				79FC7C8A18E12EEF0014D54A /* Jathara-Parivartanasana1_thumbnail.png in Resources */,
 				79083D6318F3A62E0005D874 /* icon_40@2x.png in Resources */,
@@ -696,6 +736,7 @@
 				79FC7C5018E12E7A0014D54A /* Adho-Mukha-Vrkasana_thumbnail.png in Resources */,
 				79EE8A3018FF4DAE005BFE3E /* Launch_Landscape@2x.png in Resources */,
 				79FE88A418DFC5BB00B55A20 /* Asanas@2x.png in Resources */,
+				7923520A190DC42900FCE14E /* Menu.png in Resources */,
 				79FC7C6518E12E9A0014D54A /* Bhujangasana_thumbnail.png in Resources */,
 				79FE88A318DFC5BB00B55A20 /* Asanas.png in Resources */,
 				79FE88A118DFC5BB00B55A20 /* About.png in Resources */,
@@ -703,7 +744,7 @@
 				79FC7CCD18E13CA70014D54A /* Favorites.plist in Resources */,
 				79FC7C8B18E12EEF0014D54A /* Marichyasana3_thumbnail.png in Resources */,
 				79FC7C9118E12EEF0014D54A /* Prassarita-Padottanasana1_thumbnail.png in Resources */,
-				79FC7C5118E12E7A0014D54A /* AdhoMukhaSvanasana_thumbnail.png in Resources */,
+				79FC7C5118E12E7A0014D54A /* Adho-Mukha-Svanasana_thumbnail.png in Resources */,
 				79FC7C5A18E12E8B0014D54A /* Baddha-Konasana_thumbnail.png in Resources */,
 				79083D6218F3A62E0005D874 /* icon_40.png in Resources */,
 				79FC7C9A18E12EEF0014D54A /* Tadasana-Samasthiti_thumbnail.png in Resources */,
@@ -717,9 +758,11 @@
 				79FC7CA318E12EEF0014D54A /* Uttanpadasana_thumbnail.png in Resources */,
 				79FC7CA018E12EEF0014D54A /* Utkatasana_thumbnail.png in Resources */,
 				79F5183418E3D17100EC615F /* Close@2x.png in Resources */,
+				79235212190DE63800FCE14E /* Tadasana-Urdhva-Hastasana_thumbnail.png in Resources */,
 				79FE88AB18DFC5BB00B55A20 /* Sequences@2x.png in Resources */,
 				79083D6418F3A62E0005D874 /* icon_76.png in Resources */,
 				79FC7C9218E12EEF0014D54A /* Salamba-Kapotasana_thumbnail.png in Resources */,
+				79235211190DE63800FCE14E /* Ardha-Uttanasana_thumbnail.png in Resources */,
 				79FC7CA618E12EEF0014D54A /* Virabhadrasana2_thumbnail.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -748,13 +791,14 @@
 				79FC7CB618E132C50014D54A /* ThirdLimb.xcdatamodeld in Sources */,
 				79FC7CBA18E1330B0014D54A /* AsanaType.m in Sources */,
 				79EBDA4E190C880A009C14BF /* TLSequencesAnimationScene.m in Sources */,
-				79FC7CBD18E1330B0014D54A /* Sequence.m in Sources */,
 				79FC7CAF18E12F4C0014D54A /* TLWebViewController.m in Sources */,
 				79E92E5E18F2538B007D1E28 /* TLAsanasTableViewController.m in Sources */,
 				790B110618E63B37005EA5C8 /* TLNotesViewController.m in Sources */,
 				79F5183018E3CB3700EC615F /* TLAsanaThumbnailCell.m in Sources */,
 				79F9C419190B5BFF004381E8 /* TLSequenceViewController.m in Sources */,
+				79EB9C8A1910B34700A86C20 /* Sequence.m in Sources */,
 				79EBDA4B190C878A009C14BF /* TLSequencesAnimationViewController.m in Sources */,
+				79F3458A1911FC530042626C /* TLSequencesTableViewController.m in Sources */,
 				79FE885C18DF8C0800B55A20 /* TLAppDelegate.m in Sources */,
 				79FE885818DF8C0800B55A20 /* main.m in Sources */,
 			);

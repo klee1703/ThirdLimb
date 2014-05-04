@@ -2,7 +2,7 @@
 //  Sequence.h
 //  ThirdLimb2
 //
-//  Created by Keith Lee on 3/24/14.
+//  Created by Keith Lee on 4/29/14.
 //  Copyright (c) 2014 Motu Presse. All rights reserved.
 //
 
@@ -13,7 +13,7 @@
 
 @interface Sequence : NSManagedObject
 
-@property (nonatomic, retain) NSString * definition;
+@property (nonatomic, retain) NSString * document;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * notes;
 @property (nonatomic, retain) NSSet *asanas;
@@ -25,5 +25,7 @@
 - (void)removeAsanasObject:(Asana *)value;
 - (void)addAsanas:(NSSet *)values;
 - (void)removeAsanas:(NSSet *)values;
+
++ (instancetype)sequenceWithDictionary:(NSDictionary *)dictionary inContext:(NSManagedObjectContext *)context;
 
 @end

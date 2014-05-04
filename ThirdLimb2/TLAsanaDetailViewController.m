@@ -139,6 +139,8 @@
     viewController.managedObjectContext = self.managedObjectContext;
     viewController.managedObjectModel = self.managedObjectModel;
     viewController.delegate = self.rootViewController;
+    viewController.sequences = self.sequences;
+    viewController.sequencesPlist = self.sequencesPlist;
   }
   else if ([segue.identifier isEqualToString:@"SequencesSegue"]) {
     UINavigationController *controller =
@@ -147,6 +149,8 @@
     viewController.managedObjectContext = self.managedObjectContext;
     viewController.managedObjectModel = self.managedObjectModel;
     viewController.delegate = self.delegate;
+    viewController.sequences = self.sequences;
+    viewController.sequencesPlist = self.sequencesPlist;
   }
 }
 

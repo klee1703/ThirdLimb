@@ -10,6 +10,7 @@
 #import "Asana.h"
 #import "AsanaType.h"
 #import "Favorite.h"
+#import "Sequence.h"
 #import "TLAsanaThumbnailCell.h"
 #import "TLAsanaDetailViewController.h"
 #import "TLUtilities.h"
@@ -344,8 +345,9 @@ referenceSizeForFooterInSection:(NSInteger)section
     viewController.managedObjectContext = self.managedObjectContext;
     viewController.managedObjectModel = self.managedObjectModel;
     viewController.favoriteAsanas = [[self getFavorites] asanas];
-    //    viewController.favoriteAsanas = [self.favorite asanas];
     viewController.delegate = self;
+    viewController.sequences = self.sequences;
+    viewController.sequencesPlist = self.sequencesPlist;
   }
   else if ([segue.identifier isEqualToString:@"AboutSegue"]) {
     UINavigationController *controller =
@@ -354,6 +356,8 @@ referenceSizeForFooterInSection:(NSInteger)section
     viewController.managedObjectContext = self.managedObjectContext;
     viewController.managedObjectModel = self.managedObjectModel;
     viewController.delegate = self;
+    viewController.sequences = self.sequences;
+    viewController.sequencesPlist = self.sequencesPlist;
   }
   else if ([segue.identifier isEqualToString:@"SequencesSegue"]) {
     UINavigationController *controller =
@@ -362,6 +366,8 @@ referenceSizeForFooterInSection:(NSInteger)section
     viewController.managedObjectContext = self.managedObjectContext;
     viewController.managedObjectModel = self.managedObjectModel;
     viewController.delegate = self;
+    viewController.sequences = self.sequences;
+    viewController.sequencesPlist = self.sequencesPlist;
   }
   else if ([segue.identifier isEqualToString:@"AsanasSegue"]) {
     TLAsanasTableViewController *controller =
@@ -421,11 +427,21 @@ referenceSizeForFooterInSection:(NSInteger)section
   if ([asanas count] > 0) {
     // Load asanas
     self.asanas = asanas;
+
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] init];
+    NSEntityDescription *entity = [NSEntityDescription entityForName:@"Sequence"
+                                              inManagedObjectContext:self.managedObjectContext];
+    [fetchRequest setEntity:entity];
+    NSArray *unsorted = [self.managedObjectContext executeFetchRequest:fetchRequest
+                                                                   error:nil];
+    self.sequencesPlist = [self createSequencesFromPList];
+    self.sequences = [self sortedSequences:unsorted fromPlist:self.sequencesPlist];
   }
   else {
     // Create/retrieve asana types
     NSDictionary *dictionary = [self getAsanaTypes];
     NSMutableArray *asanas = [NSMutableArray new];
+    NSMutableArray *sequences = [NSMutableArray new];
     
     // Create asanas from bundle data and persist in persistent store
     NSArray *asanasPlist = [self createAsanasFromPList];
@@ -444,6 +460,26 @@ referenceSizeForFooterInSection:(NSInteger)section
       // Add asana to collection
       [asanas addObject:asana];
     }
+    
+    // Create sequences from bundle data and persist in persistent store
+    NSDictionary *asanasDictionary = [self getDictionaryFromAsanas:asanas];
+    NSArray *sequencesPlist = [self createSequencesFromPList];
+    for (NSDictionary *sequencePlist in sequencesPlist) {
+      // Create sequence instance using plist
+      Sequence *sequence = [Sequence sequenceWithDictionary:sequencePlist inContext:self.managedObjectContext];
+      
+      // Add asana instances using plist
+      NSArray *asanaNamesPlist = [sequencePlist valueForKey:@"asanas"];
+      for (NSString *asanaName in asanaNamesPlist) {
+        Asana *asana = [asanasDictionary objectForKey:asanaName];
+        [sequence addAsanasObject:asana];
+      }
+      
+      // Add sequence to collection
+      [sequences addObject:sequence];
+    }
+    self.sequencesPlist = sequencesPlist;
+    self.sequences = sequences;
     
     // Create/retrieve favorite instance
     NSEntityDescription *entity = [NSEntityDescription entityForName:@"Favorite"
@@ -476,11 +512,41 @@ referenceSizeForFooterInSection:(NSInteger)section
   }
 }
 
+  /* Sort sequences according to order in property list */
+- (NSArray *)sortedSequences:(NSArray *)unsorted fromPlist:(NSArray *)plist {
+  NSMutableArray *sequences = [NSMutableArray new];
+  for (NSDictionary *sequencePlist in plist) {
+    NSString *name = sequencePlist[@"name"];
+    for (Sequence *sequence in unsorted) {
+      if ([name caseInsensitiveCompare:sequence.name] == NSOrderedSame) {
+        [sequences addObject:sequence];
+      }
+    }
+  }
+  return sequences;
+}
+
 - (NSArray *)createAsanasFromPList {
   // First retrieve data from bundle
   NSBundle *bundle = [NSBundle mainBundle];
   NSURL *plistURL = [bundle URLForResource:@"Asanas" withExtension:@"plist"];
   return [NSArray arrayWithContentsOfURL:plistURL];
+}
+
+- (NSArray *)createSequencesFromPList {
+  // First retrieve data from bundle
+  NSBundle *bundle = [NSBundle mainBundle];
+  NSURL *plistURL = [bundle URLForResource:@"Sequences" withExtension:@"plist"];
+  return [NSArray arrayWithContentsOfURL:plistURL];
+}
+
+- (NSDictionary *)getDictionaryFromAsanas:(NSArray *)asanas {
+  NSMutableDictionary *dictionary = [NSMutableDictionary new];
+  for (Asana *asana in asanas) {
+    [dictionary setObject:asana forKey:asana.name];
+  }
+  return dictionary;
+  
 }
 
 - (NSDictionary *)getAsanaTypes {

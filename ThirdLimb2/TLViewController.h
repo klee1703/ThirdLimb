@@ -54,6 +54,8 @@
 
 @property(nonatomic, strong) NSArray *asanas;
 @property (strong, nonatomic) UIPopoverController *asanasPopoverController;
+@property(nonatomic, strong) NSArray *sequences;
+@property(nonatomic, strong) NSArray *sequencesPlist;
 
 - (IBAction)favoritesButtonTouched:(id)sender;
 - (IBAction)asanaTypesButtonTouched:(id)sender;

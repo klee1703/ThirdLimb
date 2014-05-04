@@ -31,6 +31,9 @@ UIWebViewDelegate, UIActionSheetDelegate, UIPopoverControllerDelegate>
 @property (strong, nonatomic) NSManagedObjectContext *managedObjectContext;
 @property (strong, nonatomic) NSManagedObjectModel *managedObjectModel;
 
+@property(nonatomic, strong) NSArray *sequences;
+@property(nonatomic, strong) NSArray *sequencesPlist;
+
 // Delegate for dismissing view
 @property (weak, nonatomic) id<TLDismissViewControllerDelegate> delegate;
 

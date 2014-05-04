@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>name</key>
+		<string>Surya Namaskara A</string>
+		<key>notes</key>
+		<string>Sun Salutation A</string>
+		<key>document</key>
+		<string>Surya-NamaskaraA.html</string>
+		<key>asanas</key>
+		<array>
+			<string>Tadasana Samasthiti</string>
+			<string>Tadasana Urdhva Hastasana</string>
+			<string>Uttanasana</string>
+			<string>Ardha Uttanasana</string>
+			<string>Kumbhakasana</string>
+			<string>Chaturanga Dhandasana</string>
+			<string>Urdhva Mukha Svanasana</string>
+			<string>Adho Mukha Svanasana</string>
+			<string>Ardha Uttanasana</string>
+			<string>Uttanasana</string>
+			<string>Tadasana Urdhva Hastasana</string>
+			<string>Tadasana Samasthiti</string>
+		</array>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Surya Namaskara B</string>
+		<key>notes</key>
+		<string>Sun Salutation B</string>
+		<key>document</key>
+		<string>Surya-NamaskaraB.html</string>
+		<key>asanas</key>
+		<array>
+			<string>Tadasana Samasthiti</string>
+			<string>Utkatasana</string>
+			<string>Uttanasana</string>
+			<string>Ardha Uttanasana</string>
+			<string>Kumbhakasana</string>
+			<string>Chaturanga Dhandasana</string>
+			<string>Urdhva Mukha Svanasana</string>
+			<string>Adho Mukha Svanasana</string>
+			<string>Virabhadrasana 1</string>
+			<string>Kumbhakasana</string>
+			<string>Chaturanga Dhandasana</string>
+			<string>Urdhva Mukha Svanasana</string>
+			<string>Adho Mukha Svanasana</string>
+			<string>Virabhadrasana 1</string>
+			<string>Kumbhakasana</string>
+			<string>Chaturanga Dhandasana</string>
+			<string>Urdhva Mukha Svanasana</string>
+			<string>Adho Mukha Svanasana</string>
+			<string>Ardha Uttanasana</string>
+			<string>Uttanasana</string>
+			<string>Utkatasana</string>
+			<string>Tadasana Samasthiti</string>
+		</array>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Level 1 Sequence 1</string>
+		<key>notes</key>
+		<string></string>
+		<key>document</key>
+		<string>Level1-Sequence1.html</string>
+		<key>asanas</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Level 1 Sequence 2</string>
+		<key>notes</key>
+		<string></string>
+		<key>document</key>
+		<string>Level1-Sequence2.html</string>
+		<key>asanas</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Level 2 Sequence 1</string>
+		<key>notes</key>
+		<string></string>
+		<key>document</key>
+		<string>Level2-Sequence1.html</string>
+		<key>asanas</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Level 2 Sequence 2</string>
+		<key>notes</key>
+		<string></string>
+		<key>document</key>
+		<string>Level2-Sequence2.html</string>
+		<key>asanas</key>
+		<array/>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>Restorative Sequence 1</string>
+		<key>notes</key>
+		<string></string>
+		<key>document</key>
+		<string>Restorative-Sequence1.html</string>
+		<key>asanas</key>
+		<array/>
+	</dict>
+</array>
+</plist>

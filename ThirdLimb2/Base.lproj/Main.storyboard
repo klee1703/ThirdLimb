@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C64" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13C1021" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
@@ -362,7 +362,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tabBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ocd-hd-zZZ">
-                                <rect key="frame" x="0.0" y="975" width="768" height="49"/>
+                                <rect key="frame" x="0.0" y="968" width="768" height="56"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <items>
@@ -376,33 +376,99 @@
                                     <outlet property="delegate" destination="bJT-QC-Jsq" id="8fn-BP-zIT"/>
                                 </connections>
                             </tabBar>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cover_Transparent.png" translatesAutoresizingMaskIntoConstraints="NO" id="eHq-3x-Bfk">
+                                <rect key="frame" x="0.0" y="64" width="768" height="904"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <webView opaque="NO" alpha="0.90000000000000013" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3kO-uM-CIm">
+                                <rect key="frame" x="0.0" y="64" width="768" height="904"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="eHq-3x-Bfk" firstAttribute="leading" secondItem="9AT-5e-uyV" secondAttribute="leading" id="HUj-K6-f3s"/>
+                            <constraint firstAttribute="centerY" secondItem="eHq-3x-Bfk" secondAttribute="centerY" constant="-4" id="Hb9-3Y-4JO"/>
+                            <constraint firstItem="eHq-3x-Bfk" firstAttribute="top" secondItem="NMd-y0-JRQ" secondAttribute="bottom" id="QK5-z3-Xva"/>
+                            <constraint firstAttribute="trailing" secondItem="eHq-3x-Bfk" secondAttribute="trailing" id="TB9-SB-eXf"/>
                             <constraint firstItem="WeR-Uy-I3i" firstAttribute="top" secondItem="Ocd-hd-zZZ" secondAttribute="bottom" id="aGr-WG-qcC"/>
                             <constraint firstAttribute="trailing" secondItem="Ocd-hd-zZZ" secondAttribute="trailing" id="abh-2x-SEp"/>
+                            <constraint firstItem="3kO-uM-CIm" firstAttribute="leading" secondItem="9AT-5e-uyV" secondAttribute="leading" id="kjl-OA-ujM"/>
+                            <constraint firstAttribute="trailing" secondItem="3kO-uM-CIm" secondAttribute="trailing" id="pUI-bV-Ydd"/>
+                            <constraint firstItem="Ocd-hd-zZZ" firstAttribute="top" secondItem="eHq-3x-Bfk" secondAttribute="bottom" id="vH2-JR-NUs"/>
+                            <constraint firstAttribute="centerX" secondItem="eHq-3x-Bfk" secondAttribute="centerX" id="w8Z-In-xf6"/>
+                            <constraint firstItem="Ocd-hd-zZZ" firstAttribute="top" secondItem="3kO-uM-CIm" secondAttribute="bottom" id="xmf-MU-xl3"/>
+                            <constraint firstItem="3kO-uM-CIm" firstAttribute="top" secondItem="NMd-y0-JRQ" secondAttribute="bottom" id="zMs-6E-cTe"/>
                             <constraint firstItem="Ocd-hd-zZZ" firstAttribute="leading" secondItem="9AT-5e-uyV" secondAttribute="leading" id="zvq-1w-RKj"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Sequences" id="Wyx-jh-jUg">
-                        <barButtonItem key="leftBarButtonItem" image="Sequences.png" id="MIL-5z-6Vu"/>
-                        <barButtonItem key="rightBarButtonItem" title="Animate" id="QeO-PJ-fNT">
+                        <barButtonItem key="leftBarButtonItem" image="Menu.png" id="MIL-5z-6Vu">
                             <connections>
-                                <action selector="animateSequence:" destination="bJT-QC-Jsq" id="vy4-oq-611"/>
-                                <segue destination="Em5-SO-eQZ" kind="popover" identifier="AnimationSegue" popoverAnchorBarButtonItem="QeO-PJ-fNT" id="nwf-kg-tyw">
+                                <segue destination="l2o-Fd-6hq" kind="popover" identifier="SequencesTableSegue" popoverAnchorBarButtonItem="MIL-5z-6Vu" id="PTc-7s-1LV">
                                     <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
                                 </segue>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="WHF-YA-wHQ">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="PyZ-35-bKJ">
+                                <rect key="frame" x="582" y="5" width="170" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Animate!">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="animateSequence:" destination="bJT-QC-Jsq" eventType="touchUpInside" id="yY6-ql-CTk"/>
+                                    <segue destination="Em5-SO-eQZ" kind="popover" identifier="AnimationSegue" popoverAnchorView="PyZ-35-bKJ" id="1NN-eo-Qz1">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="animateButton" destination="QeO-PJ-fNT" id="Y2t-Ed-xMa"/>
+                        <outlet property="animateButton" destination="PyZ-35-bKJ" id="TVF-O6-DVS"/>
+                        <outlet property="tabBar" destination="Ocd-hd-zZZ" id="MN5-ms-Jw8"/>
+                        <outlet property="webView" destination="3kO-uM-CIm" id="HUs-ge-Lnk"/>
                         <segue destination="App-zL-CzH" kind="modal" identifier="AboutSegue" animates="NO" id="iOv-ew-LcM"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Bc-nZ-OrQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2435" y="-1541"/>
+            <point key="canvasLocation" x="2437" y="-1526"/>
+        </scene>
+        <!--Sequences Table View Controller-->
+        <scene sceneID="waS-U2-7OE">
+            <objects>
+                <tableViewController storyboardIdentifier="SequencesTable" useStoryboardIdentifierAsRestorationIdentifier="YES" id="l2o-Fd-6hq" customClass="TLSequencesTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="SequencesTableView" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="lUK-WC-fIy">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="SequenceCell" id="OjN-4Z-6NQ">
+                                <rect key="frame" x="0.0" y="22" width="768" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="OjN-4Z-6NQ" id="T0W-eJ-aJO">
+                                    <rect key="frame" x="0.0" y="0.0" width="768" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="l2o-Fd-6hq" id="OqQ-Zt-bYS"/>
+                            <outlet property="delegate" destination="l2o-Fd-6hq" id="ifg-1Z-NVa"/>
+                        </connections>
+                    </tableView>
+                    <value key="contentSizeForViewInPopover" type="size" width="320" height="512"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="N4a-jh-0ou" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3426" y="-1512"/>
         </scene>
         <!--About View Controller - About-->
         <scene sceneID="zzj-H9-vXU">
@@ -419,7 +485,7 @@
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZKY-TG-WD7">
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="975"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137254901957" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
                             <tabBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xBA-Cc-muk">
                                 <rect key="frame" x="0.0" y="975" width="768" height="49"/>
@@ -437,7 +503,7 @@
                                 </connections>
                             </tabBar>
                         </subviews>
-                        <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="HAL-0F-rg9" firstAttribute="top" secondItem="ZKY-TG-WD7" secondAttribute="bottom" constant="49" id="NQ9-nH-puO"/>
                             <constraint firstAttribute="trailing" secondItem="xBA-Cc-muk" secondAttribute="trailing" id="R94-pT-24U"/>
@@ -473,7 +539,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <value key="contentSizeForViewInPopover" type="size" width="192" height="192"/>
+                    <value key="contentSizeForViewInPopover" type="size" width="256" height="256"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FqJ-eg-Dg8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -494,7 +560,7 @@
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ze2-SD-s82">
                                 <rect key="frame" x="0.0" y="63" width="768" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.96078431372549022" green="0.94509803921568625" blue="0.87058823529411766" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="ALe-rr-vKb"/>
                                 </constraints>
@@ -505,7 +571,7 @@
                             <webView contentMode="scaleToFill" restorationIdentifier="AsanaView" translatesAutoresizingMaskIntoConstraints="NO" id="1GV-nm-bE5">
                                 <rect key="frame" x="0.0" y="98" width="768" height="926"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137254901957" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vjM-JS-cmH">
                                 <rect key="frame" x="702" y="68" width="41" height="31"/>
@@ -727,6 +793,8 @@
         <image name="About.png" width="29" height="29"/>
         <image name="Asanas.png" width="29" height="29"/>
         <image name="Close.png" width="29" height="29"/>
+        <image name="Cover_Transparent.png" width="341" height="341"/>
+        <image name="Menu.png" width="20" height="20"/>
         <image name="Sequences.png" width="29" height="29"/>
         <image name="star.png" width="24" height="24"/>
     </resources>
@@ -736,7 +804,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="5a7-ay-Y9Z"/>
         <segue reference="iOv-ew-LcM"/>
-        <segue reference="kgi-3A-1It"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -8,7 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
+#import "Sequence.h"
 
 @interface TLSequencesAnimationScene : SKScene
+
+@property(nonatomic, strong) Sequence *sequence;
+@property(nonatomic, strong) NSDictionary *sequencePlist;
 
 @end
