@@ -36,6 +36,7 @@
   TLSequencesAnimationScene *scene = [[TLSequencesAnimationScene alloc] initWithSize:CGSizeMake(152, 152)];
   scene.sequence = self.sequence;
   scene.sequencePlist = self.sequencePlist;
+  scene.delegate = self.delegate;
   SKView *spriteView = (SKView *)self.view;
   [spriteView presentScene:scene];
 }

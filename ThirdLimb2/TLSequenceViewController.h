@@ -9,10 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "TLDismissViewControllerDelegate.h"
 #import "TLSequenceSelectDelegate.h"
+#import "TLDismissAnimationViewDelegate.h"
 
 #define kSequenceDocument   @"Sequences.html"
 
-@interface TLSequenceViewController : UIViewController <UIWebViewDelegate, UITabBarDelegate, TLSequenceSelectDelegate>
+@interface TLSequenceViewController : UIViewController <UIWebViewDelegate, UITabBarDelegate, TLSequenceSelectDelegate, TLDismissAnimationViewDelegate>
 
 // Delegate for dismissing view
 @property (weak, nonatomic) id<TLDismissViewControllerDelegate> delegate;

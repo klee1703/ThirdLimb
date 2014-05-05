@@ -163,6 +163,7 @@
 		7923520F190DE63800FCE14E /* Tadasana-Urdhva-Hastasana_thumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Tadasana-Urdhva-Hastasana_thumbnail.png"; sourceTree = "<group>"; };
 		79E92E5C18F2538B007D1E28 /* TLAsanasTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLAsanasTableViewController.h; sourceTree = "<group>"; };
 		79E92E5D18F2538B007D1E28 /* TLAsanasTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLAsanasTableViewController.m; sourceTree = "<group>"; };
+		79EAB56719173B9E008D5406 /* TLDismissAnimationViewDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TLDismissAnimationViewDelegate.h; sourceTree = "<group>"; };
 		79EB9C881910B34700A86C20 /* Sequence.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sequence.h; sourceTree = "<group>"; };
 		79EB9C891910B34700A86C20 /* Sequence.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sequence.m; sourceTree = "<group>"; };
 		79EBDA49190C878A009C14BF /* TLSequencesAnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLSequencesAnimationViewController.h; sourceTree = "<group>"; };
@@ -334,6 +335,7 @@
 				7903449D191345940095B377 /* TLSequenceSelectDelegate.h */,
 				7903449E19134C000095B377 /* Surya-NamaskaraA.html */,
 				790344A019134C120095B377 /* Surya-NamaskaraB.html */,
+				79EAB56719173B9E008D5406 /* TLDismissAnimationViewDelegate.h */,
 			);
 			name = "Sequences View";
 			sourceTree = "<group>";

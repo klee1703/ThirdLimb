@@ -9,10 +9,14 @@
 #import <UIKit/UIKit.h>
 #import <SpriteKit/SpriteKit.h>
 #import "Sequence.h"
+#import "TLDismissAnimationViewDelegate.h"
 
 @interface TLSequencesAnimationScene : SKScene
 
 @property(nonatomic, strong) Sequence *sequence;
 @property(nonatomic, strong) NSDictionary *sequencePlist;
+
+// Delegate for dismissing view
+@property (weak, nonatomic) id<TLDismissAnimationViewDelegate> delegate;
 
 @end

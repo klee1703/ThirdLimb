@@ -35,10 +35,12 @@
                                              resize:NO
                                             restore:NO];
   
-  //SKAction *wait = [SKAction waitForDuration:5.0];
-  //  SKAction *sequence = [SKAction sequence:@[animate, wait]];
+  SKAction *wait = [SKAction waitForDuration:3.0];
+  SKAction *sequence = [SKAction sequence:@[animate, wait]];
   //SKAction *forever = [SKAction repeatActionForever:sequence];
-  [sprite runAction:animate completion:nil];
+  [sprite runAction:sequence completion:^{
+    [self.delegate dismissAnimationViewController];
+  }];
 }
 
 @end

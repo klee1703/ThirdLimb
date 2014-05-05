@@ -128,6 +128,7 @@
     (TLSequencesAnimationViewController *)segue.destinationViewController;
     controller.sequence = self.currentSequence;
     controller.sequencePlist = self.currentSequencePlist;
+    controller.delegate = self;
     
     // Retrieve popover controller for programmatic dismissal
     UIStoryboardPopoverSegue *popoverSegue = (UIStoryboardPopoverSegue *)segue;
@@ -153,6 +154,7 @@
   }
 }
 
+
 #pragma mark - 
 #pragma mark SequenceSelectDelegate methods
 - (void)didSelectSequenceAtRow:(NSUInteger)row {
@@ -167,10 +169,16 @@
   if (self.currentSequence.asanas.count > 0) {
     self.animateButton.enabled = YES;
     self.animateButton.hidden = NO;
+    
+    // Display new nav bar title
+    [self.navigationItem setTitle:self.currentSequence.name];
   }
   else {
     self.animateButton.enabled = NO;
     self.animateButton.hidden = YES;
+    
+    // Display new nav bar title
+    [self.navigationItem setTitle:@"Sequences"];
   }
   
   if (self.sequencesPopoverController != nil){
@@ -179,6 +187,15 @@
   }
   
 }
+
+
+#pragma mark -
+#pragma mark TLDismissAnimationViewDelegate methods
+-(void) dismissAnimationViewController {
+  [self.animationPopoverController dismissPopoverAnimated:YES];
+  self.animationPopoverController = nil;
+}
+
 
 -(void)loadSequenceView:(NSString *)document {
   NSBundle *bundle = [NSBundle mainBundle];
