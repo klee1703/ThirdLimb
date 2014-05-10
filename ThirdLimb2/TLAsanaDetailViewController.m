@@ -78,8 +78,9 @@
   switch (item.tag) {
     case kAsanasTab:
       // Display asanas view
-      [self.delegate dismissViewController];
-      [self.delegate didSelectTabItem:item.tag];
+      [self.delegate dismissViewController:item.tag];
+      //      [self.delegate dismissViewController];
+      //[self.delegate didSelectTabItem:item.tag];
       break;
     case kSequencesTab:
       // Display sequences view
@@ -87,8 +88,7 @@
       break;
     case kFavoritesTab:
       // Display favorites view
-      [self.delegate dismissViewController];
-      [self.delegate didSelectTabItem:item.tag];
+      [self.delegate dismissViewController:item.tag];
       break;
     case kAboutTab:
       // Display About view

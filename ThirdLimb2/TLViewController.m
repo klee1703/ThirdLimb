@@ -383,8 +383,11 @@ referenceSizeForFooterInSection:(NSInteger)section
 
 #pragma mark -
 #pragma mark Delegate method
-- (void)dismissViewController {
-  [self dismissViewControllerAnimated:YES completion:nil];
+- (void)dismissViewController:(NSInteger)itemTag {
+  [self dismissViewControllerAnimated:NO
+                           completion:^{
+                             [self didSelectTabItem:itemTag];
+                           }];
 }
 
 

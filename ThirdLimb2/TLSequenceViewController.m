@@ -20,6 +20,7 @@
 @property(strong, nonatomic) Sequence *currentSequence;
 @property(strong, nonatomic) NSDictionary *currentSequencePlist;
 @property(strong, nonatomic) NSString *indexFileURL;
+@property BOOL isDisplayingSequencePage;
 
 @end
 
@@ -61,6 +62,7 @@
   [self.webView setDelegate:self];
   [self.webView loadRequest:[NSURLRequest requestWithURL:indexFileURL]];
   [self.webView setScalesPageToFit:YES];
+  self.isDisplayingSequencePage = YES;
 }
 
 - (void)didReceiveMemoryWarning
@@ -89,19 +91,20 @@
     case kAsanasTab:
     {
       // Display asanas view
-      [self.delegate dismissViewController];
-      [self.delegate didSelectTabItem:item.tag];
+      [self.delegate dismissViewController:item.tag];
       break;
     }
     case kSequencesTab:
     {
       // Current view, just break
+      if (!self.isDisplayingSequencePage) {
+        [self displaySequencePage];
+      }
       break;
     }
     case kFavoritesTab:
     {
-      [self.delegate dismissViewController];
-      [self.delegate didSelectTabItem:item.tag];
+      [self.delegate dismissViewController:item.tag];
       break;
     }
     case kAboutTab:
@@ -114,6 +117,7 @@
   }
 }
 
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
   if ([segue.identifier isEqualToString:@"AboutSegue"]) {
     UINavigationController *controller =
@@ -122,6 +126,8 @@
     viewController.managedObjectContext = self.managedObjectContext;
     viewController.managedObjectModel = self.managedObjectModel;
     viewController.delegate = self.delegate;
+    viewController.sequencesPlist = self.sequencesPlist;
+    viewController.sequences = self.sequences;
   }
   else if ([segue.identifier isEqualToString:@"AnimationSegue"]) {
     TLSequencesAnimationViewController *controller =
@@ -203,6 +209,20 @@
   if (indexFileURL == nil) {
     indexFileURL = [bundle URLForResource:kSequenceDocument withExtension:nil];
   }
+  [self.webView loadRequest:[NSURLRequest requestWithURL:indexFileURL]];
+  [self.webView setScalesPageToFit:YES];
+  self.isDisplayingSequencePage = NO;
+}
+
+
+- (void)displaySequencePage {
+  // Disable animate button
+  self.animateButton.enabled = NO;
+  self.animateButton.hidden = YES;
+  
+  // Load web view
+  NSBundle *bundle = [NSBundle mainBundle];
+  NSURL *indexFileURL = [bundle URLForResource:kSequenceDocument withExtension:nil];
   [self.webView loadRequest:[NSURLRequest requestWithURL:indexFileURL]];
   [self.webView setScalesPageToFit:YES];
 }

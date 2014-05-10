@@ -10,7 +10,8 @@
 
 @protocol TLDismissViewControllerDelegate <NSObject>
 
--(void) dismissViewController;
+//-(void) dismissViewController;
+-(void) dismissViewController:(NSInteger)itemTag;
 -(void) didSelectTabItem:(NSInteger)item;
 -(void) selectTabItem:(NSInteger)item;
 

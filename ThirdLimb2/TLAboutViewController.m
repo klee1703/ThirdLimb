@@ -76,8 +76,8 @@
     case kAsanasTab:
     {
       // Display asanas view
-      [self.delegate dismissViewController];
-      [self.delegate didSelectTabItem:item.tag];
+      [self.delegate dismissViewController:item.tag];
+      //      [self.delegate didSelectTabItem:item.tag];
       break;
     }
     case kSequencesTab:
@@ -88,8 +88,7 @@
     }
     case kFavoritesTab:
     {
-      [self.delegate dismissViewController];
-      [self.delegate didSelectTabItem:item.tag];
+      [self.delegate dismissViewController:item.tag];
       break;
     }
     case kAboutTab:
