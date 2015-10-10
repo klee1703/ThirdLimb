@@ -20,6 +20,8 @@
 		790B110618E63B37005EA5C8 /* TLNotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 790B110518E63B37005EA5C8 /* TLNotesViewController.m */; };
 		790B110A18E64CC3005EA5C8 /* Favorites.png in Resources */ = {isa = PBXBuildFile; fileRef = 790B110818E64CC3005EA5C8 /* Favorites.png */; };
 		790B110B18E64CC3005EA5C8 /* Favorites@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 790B110918E64CC3005EA5C8 /* Favorites@2x.png */; };
+		791BD7601BC897CA006B67CC /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 791BD75E1BC897CA006B67CC /* star.png */; settings = {ASSET_TAGS = (); }; };
+		791BD7611BC897CA006B67CC /* star_32.png in Resources */ = {isa = PBXBuildFile; fileRef = 791BD75F1BC897CA006B67CC /* star_32.png */; settings = {ASSET_TAGS = (); }; };
 		79235208190DC18600FCE14E /* Cover_Transparent.png in Resources */ = {isa = PBXBuildFile; fileRef = 79235207190DC18600FCE14E /* Cover_Transparent.png */; };
 		7923520A190DC42900FCE14E /* Menu.png in Resources */ = {isa = PBXBuildFile; fileRef = 79235209190DC42900FCE14E /* Menu.png */; };
 		7923520C190DC65900FCE14E /* Sequences.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7923520B190DC65900FCE14E /* Sequences.plist */; };
@@ -158,6 +160,8 @@
 		790B110518E63B37005EA5C8 /* TLNotesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLNotesViewController.m; sourceTree = "<group>"; };
 		790B110818E64CC3005EA5C8 /* Favorites.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Favorites.png; path = ../../../../../../dev/apple/ThirdLimb/ThirdLimb/Favorites.png; sourceTree = "<group>"; };
 		790B110918E64CC3005EA5C8 /* Favorites@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Favorites@2x.png"; path = "../../../../../../dev/apple/ThirdLimb/ThirdLimb/Favorites@2x.png"; sourceTree = "<group>"; };
+		791BD75E1BC897CA006B67CC /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
+		791BD75F1BC897CA006B67CC /* star_32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star_32.png; sourceTree = "<group>"; };
 		79235207190DC18600FCE14E /* Cover_Transparent.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Cover_Transparent.png; path = resources/Cover_Transparent.png; sourceTree = SOURCE_ROOT; };
 		79235209190DC42900FCE14E /* Menu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Menu.png; path = resources/Menu.png; sourceTree = SOURCE_ROOT; };
 		7923520B190DC65900FCE14E /* Sequences.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Sequences.plist; sourceTree = "<group>"; };
@@ -409,6 +413,8 @@
 		79FC7C3D18E12DD70014D54A /* icons */ = {
 			isa = PBXGroup;
 			children = (
+				791BD75E1BC897CA006B67CC /* star.png */,
+				791BD75F1BC897CA006B67CC /* star_32.png */,
 				79F5D7F3193D5B5700B1B777 /* star_32.png */,
 				790B110818E64CC3005EA5C8 /* Favorites.png */,
 				790B110918E64CC3005EA5C8 /* Favorites@2x.png */,
@@ -691,6 +697,7 @@
 				79FC7C8D18E12EEF0014D54A /* Matsyasana_thumbnail.png in Resources */,
 				79FE88AA18DFC5BB00B55A20 /* Sequences.png in Resources */,
 				79235210190DE63800FCE14E /* Kumbhakasana_thumbnail.png in Resources */,
+				791BD7601BC897CA006B67CC /* star.png in Resources */,
 				79FC7CA418E12EEF0014D54A /* Viparita-Karani_thumbnail.png in Resources */,
 				79FC7C9318E12EEF0014D54A /* Salamba-Sirsasana1_thumbnail.png in Resources */,
 				790B110A18E64CC3005EA5C8 /* Favorites.png in Resources */,
@@ -745,6 +752,7 @@
 				79FC7C9818E12EEF0014D54A /* Sukhasana_thumbnail.png in Resources */,
 				79FC7C9D18E12EEF0014D54A /* Upavishta-Konasana1_thumbnail.png in Resources */,
 				79FE88A218DFC5BB00B55A20 /* About@2x.png in Resources */,
+				791BD7611BC897CA006B67CC /* star_32.png in Resources */,
 				79FE88A718DFC5BB00B55A20 /* BackgroundSand.jpg in Resources */,
 				79FC7C5018E12E7A0014D54A /* Adho-Mukha-Vrkasana_thumbnail.png in Resources */,
 				79EE8A3018FF4DAE005BFE3E /* Launch_Landscape@2x.png in Resources */,
